@@ -18,13 +18,13 @@
     <div class="panel-heading" style="background-color: white">
         <div>
             <div class="panel-heading" style="background-color: white">
-                <a href="/">Genesis</a> › 主题
+                <a href="/">Lhfly</a> › 主题
             </div>
             <h3>${topic.title}</h3><br/>
             <div>
                 <a href="/member/${topic.user.username}"><span ><strong>${topic.user.username}</strong></span></a>&nbsp;&nbsp;
-                <small class="text-muted">${topic.localCreateTime}&nbsp;&nbsp;&nbsp;+08:00</small>&nbsp;&nbsp;
-                <small class="text-muted">${topic.click}次点击</small>
+                <small class="text-muted">创建于: ${topic.localCreateTime}&nbsp;&nbsp;&nbsp;</small>&nbsp;&nbsp;
+                <small class="text-muted">阅读量: ${topic.click}</small>
             </div>
         </div>
 
@@ -44,7 +44,7 @@
 <div class="panel panel-default" id="main" style="">
     <div class="panel-heading" style="background-color: white">
         <span>
-                ${fn:length(replies)} 回复  |  直到 <c:forEach items="${replies}" var="reply" varStatus="status">
+                评论数: ${fn:length(replies)}  |  最新评论: <c:forEach items="${replies}" var="reply" varStatus="status">
 
 <c:if test="${status.last}">
     ${reply.localCreateTime}
