@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+/**
+ * 日志写入，路径在log4j.properties中有
+ */
 @Component
 @Aspect
 public class LogAspect {
