@@ -12,6 +12,7 @@ import pojo.User;
 import service.LoginLogService;
 import service.TopicService;
 import service.UserService;
+import service.VisitorService;
 import util.ProduceMD5;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,8 @@ public class UserController {
     LoginLogService loginLogService;
     @Autowired
     TopicService topicService;
+    @Autowired
+    VisitorService visitorService;
     //用户注册
     @RequestMapping("/user/add/do")
     public String addUser(HttpServletRequest request,HttpSession session){
@@ -167,10 +170,13 @@ public class UserController {
         //获取用户信息
         Integer uid= (Integer) session.getAttribute("userId");
         User user=userService.getUserById(uid);
+        //获取访问量
+        Integer visitorNum=visitorService.countVisitor();
         //最热主题
         List<Topic> hotestTopics=topicService.listMostCommentsTopics();
         ModelAndView mv=new ModelAndView("user_info");
         mv.addObject("hotestTopics",hotestTopics);
+        mv.addObject("visitorNum", visitorNum);
         if(ifExistUser){
             User resultUser=userService.getUserByUsername(username);
             mv.addObject("userInfo",resultUser);
@@ -192,10 +198,13 @@ public class UserController {
 
         //最热主题
         List<Topic> hotestTopics=topicService.listMostCommentsTopics();
+        //获取访问量
+        Integer visitorNum=visitorService.countVisitor();
 
         ModelAndView mv=new ModelAndView("settings");
         mv.addObject("user",user);
         mv.addObject("hotestTopics",hotestTopics);
+        mv.addObject("visitorNum",visitorNum);
         return mv;
     }
     @RequestMapping(value = "/settings/avatar",method = RequestMethod.GET)
@@ -206,10 +215,13 @@ public class UserController {
 
         //最热主题
         List<Topic> hotestTopics=topicService.listMostCommentsTopics();
+        //获取访问量
+        Integer visitorNum=visitorService.countVisitor();
 
         ModelAndView mv=new ModelAndView("update_avatar");
         mv.addObject("user",user);
         mv.addObject("hotestTopics",hotestTopics);
+        mv.addObject("visitorNum",visitorNum);
         return mv;
     }
     @RequestMapping(value = "/settings/avatar/update",method = RequestMethod.POST)
@@ -240,9 +252,12 @@ public class UserController {
         User user=userService.getUserById(uid);
         //最热主题
         List<Topic> hotestTopics=topicService.listMostCommentsTopics();
+        //获取访问量
+        Integer visitorNum=visitorService.countVisitor();
         ModelAndView mv=new ModelAndView("update_avatar");
         mv.addObject("user", user);
         mv.addObject("hotestTopics", hotestTopics);
+        mv.addObject("visitorNum",visitorNum);
         return mv;
     }
 }

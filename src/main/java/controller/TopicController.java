@@ -10,10 +10,7 @@ import pojo.Reply;
 import pojo.Tab;
 import pojo.Topic;
 import pojo.User;
-import service.ReplyService;
-import service.TabService;
-import service.TopicService;
-import service.UserService;
+import service.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -30,6 +27,8 @@ public class TopicController {
     UserService userService;
     @Autowired
     TabService tabService;
+    @Autowired
+    VisitorService visitorService;
 
     /**
      * 首页
@@ -46,6 +45,8 @@ public class TopicController {
         //获取用户信息
         Integer uid=(Integer)session.getAttribute("userId");
         User user=userService.getUserById(uid);
+        //获取访问量
+        Integer visitorNum=visitorService.countVisitor();
         //热门主题
         List<Topic> hotestTopics=topicService.listMostCommentsTopics();
         modelAndView.addObject("topics", topics);
@@ -53,6 +54,7 @@ public class TopicController {
         modelAndView.addObject("topicsNum", topicsNum);
         modelAndView.addObject("usersNum", usersNum);
         modelAndView.addObject("user", user);
+        modelAndView.addObject("visitorNum", visitorNum);
         return modelAndView;
     }
     /**
@@ -76,6 +78,8 @@ public class TopicController {
         User user=userService.getUserById(uid);
         //最热主题
         List<Topic> hotestTopics=topicService.listMostCommentsTopics();
+        //获取访问量
+        Integer visitorNum=visitorService.countVisitor();
 
         ModelAndView topicPage=new ModelAndView("detail");
         topicPage.addObject("topic", topic);
@@ -85,7 +89,7 @@ public class TopicController {
         topicPage.addObject("usersNum",usersNum);
         topicPage.addObject("user",user);
         topicPage.addObject("hotestTopics",hotestTopics);
-
+        topicPage.addObject("visitorNum",visitorNum);
         return topicPage;
     }
     /**
@@ -108,13 +112,15 @@ public class TopicController {
         User user=userService.getUserById(uid);
 
         List<Topic> hotestTopics=topicService.listMostCommentsTopics();
-
+        //获取访问量
+        Integer visitorNum=visitorService.countVisitor();
         mv.addObject("topics", topics);
         mv.addObject("topicsNum", topicsNum);
         mv.addObject("usersNum", usersNum);
         mv.addObject("tab", tab);
         mv.addObject("user", user);
         mv.addObject("hotestTopics", hotestTopics);
+        mv.addObject("visitorNum",visitorNum);
         return mv;
     }
     /**
@@ -207,13 +213,15 @@ public class TopicController {
         User user=userService.getUserById(uid);
         //获取热门主题
         List<Topic> hotestTopics=topicService.listMostCommentsTopics();
-
+        //获取访问量
+        Integer visitorNum=visitorService.countVisitor();
         ModelAndView mv=new ModelAndView("cate");
         mv.addObject("topics", topics);
         mv.addObject("topicsNum", topicsNum);
         mv.addObject("usersNum", usersNum);
         mv.addObject("user", user);
         mv.addObject("hotestTopics", hotestTopics);
+        mv.addObject("visitorNum",visitorNum);
         return mv;
     }
 }

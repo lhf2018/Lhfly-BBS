@@ -1,0 +1,1034 @@
+23:07:41,891 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/]
+23:07:41,891 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /
+23:07:41,891 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toMain(javax.servlet.http.HttpSession)]
+23:07:41,891 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:07:41,891 DEBUG DispatcherServlet - Last-Modified value for [/] is: -1
+23:07:41,892  INFO LogAspect - ---Before method TopicController.toMain(..) invoke, param:[org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:07:41,892 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:41,892 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26a2997f] was not registered for synchronization because synchronization is not active
+23:07:41,892 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:41,892 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:41,892 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:07:41,893 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:07:41.892(Timestamp), CHROME(String)
+23:07:42,661 DEBUG insert - <==    Updates: 1
+23:07:42,661 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26a2997f]
+23:07:42,661 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:42,661 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:42,661 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18840445] was not registered for synchronization because synchronization is not active
+23:07:42,661 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:42,661 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:42,661 DEBUG listTopicsAndUsers - ==>  Preparing: select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar , tab.tab_name,count(reply.id) as count_replies from topic LEFT JOIN user on topic.user_id = user.id LEFT JOIN tab on tab.id=topic.tab_id LEFT JOIN reply on topic.id=reply.topic_id group by topic.id order by topic.id desc ; 
+23:07:42,661 DEBUG listTopicsAndUsers - ==> Parameters: 
+23:07:42,665 DEBUG listTopicsAndUsers - <==      Total: 17
+23:07:42,665 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18840445]
+23:07:42,665 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:42,665 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:42,665 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55e8d91f] was not registered for synchronization because synchronization is not active
+23:07:42,665 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:42,665 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:42,665 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:07:42,665 DEBUG getTopicsNum - ==> Parameters: 
+23:07:42,666 DEBUG getTopicsNum - <==      Total: 1
+23:07:42,666 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55e8d91f]
+23:07:42,666 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:42,666 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:42,666 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a60e2c6] was not registered for synchronization because synchronization is not active
+23:07:42,666 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:42,666 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:42,666 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:07:42,666 DEBUG getUserCount - ==> Parameters: 
+23:07:42,667 DEBUG getUserCount - <==      Total: 1
+23:07:42,667 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a60e2c6]
+23:07:42,667 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:42,667 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:42,667 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@641ba8eb] was not registered for synchronization because synchronization is not active
+23:07:42,667 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:42,667 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:42,667 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:07:42,667 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:07:42,668 DEBUG selectByPrimaryKey - <==      Total: 1
+23:07:42,668 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@641ba8eb]
+23:07:42,668 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:42,668 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:42,668 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@326ab9bb] was not registered for synchronization because synchronization is not active
+23:07:42,668 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:42,668 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:42,668 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:07:42,668 DEBUG countVisitor - ==> Parameters: 
+23:07:42,668 DEBUG countVisitor - <==      Total: 1
+23:07:42,668 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@326ab9bb]
+23:07:42,668 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:42,668 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:42,669 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33c05d98] was not registered for synchronization because synchronization is not active
+23:07:42,669 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:42,669 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:42,669 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:07:42,669 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:07:42,670 DEBUG listMostCommentsTopics - <==      Total: 5
+23:07:42,670 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33c05d98]
+23:07:42,670 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:42,670 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'cate'; URL [/WEB-INF/jsp/cate.jsp]] in DispatcherServlet with name 'main'
+23:07:42,671 DEBUG JstlView - Added model object 'topics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:42,671 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:42,671 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:42,671 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:42,671 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'cate'
+23:07:42,671 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:42,671 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:42,671 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/cate.jsp] in InternalResourceView 'cate'
+23:07:42,709 DEBUG DispatcherServlet - Successfully completed request
+23:07:43,356 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/tab/tech]
+23:07:43,357 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /tab/tech
+23:07:43,357 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toTabPage(java.lang.String,javax.servlet.http.HttpSession)]
+23:07:43,357 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:07:43,357 DEBUG DispatcherServlet - Last-Modified value for [/tab/tech] is: -1
+23:07:43,357  INFO LogAspect - ---Before method TopicController.toTabPage(..) invoke, param:[tech, org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:07:43,357 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,357 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68dd9565] was not registered for synchronization because synchronization is not active
+23:07:43,358 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,358 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,358 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:07:43,358 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:07:43.357(Timestamp), CHROME(String)
+23:07:43,417 DEBUG insert - <==    Updates: 1
+23:07:43,418 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68dd9565]
+23:07:43,418 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,418 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,418 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68802294] was not registered for synchronization because synchronization is not active
+23:07:43,418 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,418 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,418 DEBUG getByTabNameEn - ==>  Preparing: select id,tab_name,tab_name_en from tab where tab_name_en = ? 
+23:07:43,418 DEBUG getByTabNameEn - ==> Parameters: tech(String)
+23:07:43,419 DEBUG getByTabNameEn - <==      Total: 1
+23:07:43,419 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68802294]
+23:07:43,419 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,419 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,419 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d81a532] was not registered for synchronization because synchronization is not active
+23:07:43,419 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,420 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,420 DEBUG listTopicsAndUsersOfTab - ==>  Preparing: select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar , tab.tab_name,count(reply.id) as count_replies from topic left join user on topic.user_id=user.id left join tab on tab.id=topic.tab_id left join reply on topic.id=reply.topic_id where tab.id=? group by topic.id order by topic.id desc ; 
+23:07:43,420 DEBUG listTopicsAndUsersOfTab - ==> Parameters: 1(Integer)
+23:07:43,422 DEBUG listTopicsAndUsersOfTab - <==      Total: 13
+23:07:43,422 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d81a532]
+23:07:43,422 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,422 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,422 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e7ec34a] was not registered for synchronization because synchronization is not active
+23:07:43,423 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,423 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,423 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:07:43,423 DEBUG getTopicsNum - ==> Parameters: 
+23:07:43,424 DEBUG getTopicsNum - <==      Total: 1
+23:07:43,424 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e7ec34a]
+23:07:43,424 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,424 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,424 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@11b89326] was not registered for synchronization because synchronization is not active
+23:07:43,424 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,424 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,424 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:07:43,424 DEBUG getUserCount - ==> Parameters: 
+23:07:43,425 DEBUG getUserCount - <==      Total: 1
+23:07:43,425 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@11b89326]
+23:07:43,425 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,425 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,425 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@19a7856d] was not registered for synchronization because synchronization is not active
+23:07:43,425 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,425 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,425 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:07:43,425 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:07:43,426 DEBUG selectByPrimaryKey - <==      Total: 1
+23:07:43,427 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@19a7856d]
+23:07:43,427 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,427 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,427 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@787661cd] was not registered for synchronization because synchronization is not active
+23:07:43,427 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,427 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,427 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:07:43,428 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:07:43,429 DEBUG listMostCommentsTopics - <==      Total: 5
+23:07:43,429 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@787661cd]
+23:07:43,429 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,429 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,429 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@296ceda1] was not registered for synchronization because synchronization is not active
+23:07:43,429 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,429 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,429 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:07:43,429 DEBUG countVisitor - ==> Parameters: 
+23:07:43,430 DEBUG countVisitor - <==      Total: 1
+23:07:43,430 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@296ceda1]
+23:07:43,430 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,430 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'cate'; URL [/WEB-INF/jsp/cate.jsp]] in DispatcherServlet with name 'main'
+23:07:43,431 DEBUG JstlView - Added model object 'tabNameEn' of type [java.lang.String] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Added model object 'topics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Added model object 'tab' of type [pojo.Tab] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.tab' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:43,431 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/cate.jsp] in InternalResourceView 'cate'
+23:07:43,432 DEBUG DispatcherServlet - Successfully completed request
+23:07:43,795 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/tab/play]
+23:07:43,797 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /tab/play
+23:07:43,797 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toTabPage(java.lang.String,javax.servlet.http.HttpSession)]
+23:07:43,797 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:07:43,797 DEBUG DispatcherServlet - Last-Modified value for [/tab/play] is: -1
+23:07:43,798  INFO LogAspect - ---Before method TopicController.toTabPage(..) invoke, param:[play, org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:07:43,798 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,798 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ec26e68] was not registered for synchronization because synchronization is not active
+23:07:43,798 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,798 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,798 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:07:43,798 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:07:43.798(Timestamp), CHROME(String)
+23:07:43,910 DEBUG insert - <==    Updates: 1
+23:07:43,910 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ec26e68]
+23:07:43,910 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,910 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,911 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b7b400d] was not registered for synchronization because synchronization is not active
+23:07:43,911 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,911 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,911 DEBUG getByTabNameEn - ==>  Preparing: select id,tab_name,tab_name_en from tab where tab_name_en = ? 
+23:07:43,911 DEBUG getByTabNameEn - ==> Parameters: play(String)
+23:07:43,911 DEBUG getByTabNameEn - <==      Total: 1
+23:07:43,912 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b7b400d]
+23:07:43,912 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,912 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,912 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73892f00] was not registered for synchronization because synchronization is not active
+23:07:43,912 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,912 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,912 DEBUG listTopicsAndUsersOfTab - ==>  Preparing: select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar , tab.tab_name,count(reply.id) as count_replies from topic left join user on topic.user_id=user.id left join tab on tab.id=topic.tab_id left join reply on topic.id=reply.topic_id where tab.id=? group by topic.id order by topic.id desc ; 
+23:07:43,912 DEBUG listTopicsAndUsersOfTab - ==> Parameters: 2(Integer)
+23:07:43,913 DEBUG listTopicsAndUsersOfTab - <==      Total: 3
+23:07:43,913 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73892f00]
+23:07:43,913 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,913 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,913 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5df639ec] was not registered for synchronization because synchronization is not active
+23:07:43,914 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,914 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,914 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:07:43,914 DEBUG getTopicsNum - ==> Parameters: 
+23:07:43,915 DEBUG getTopicsNum - <==      Total: 1
+23:07:43,915 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5df639ec]
+23:07:43,915 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,915 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,915 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c13581f] was not registered for synchronization because synchronization is not active
+23:07:43,915 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,915 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,915 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:07:43,915 DEBUG getUserCount - ==> Parameters: 
+23:07:43,916 DEBUG getUserCount - <==      Total: 1
+23:07:43,916 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c13581f]
+23:07:43,916 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,916 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,916 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1de3d411] was not registered for synchronization because synchronization is not active
+23:07:43,916 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,916 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,916 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:07:43,916 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:07:43,916 DEBUG selectByPrimaryKey - <==      Total: 1
+23:07:43,916 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1de3d411]
+23:07:43,916 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,917 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,917 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@252a7d9e] was not registered for synchronization because synchronization is not active
+23:07:43,917 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,917 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,917 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:07:43,917 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:07:43,918 DEBUG listMostCommentsTopics - <==      Total: 5
+23:07:43,918 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@252a7d9e]
+23:07:43,918 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,918 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:43,918 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29bb09db] was not registered for synchronization because synchronization is not active
+23:07:43,918 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:43,918 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:43,918 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:07:43,918 DEBUG countVisitor - ==> Parameters: 
+23:07:43,919 DEBUG countVisitor - <==      Total: 1
+23:07:43,919 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29bb09db]
+23:07:43,919 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:43,920 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'cate'; URL [/WEB-INF/jsp/cate.jsp]] in DispatcherServlet with name 'main'
+23:07:43,920 DEBUG JstlView - Added model object 'tabNameEn' of type [java.lang.String] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Added model object 'topics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Added model object 'tab' of type [pojo.Tab] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.tab' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:43,920 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/cate.jsp] in InternalResourceView 'cate'
+23:07:43,921 DEBUG DispatcherServlet - Successfully completed request
+23:07:44,105 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/tab/creative]
+23:07:44,106 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /tab/creative
+23:07:44,106 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toTabPage(java.lang.String,javax.servlet.http.HttpSession)]
+23:07:44,106 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:07:44,106 DEBUG DispatcherServlet - Last-Modified value for [/tab/creative] is: -1
+23:07:44,106  INFO LogAspect - ---Before method TopicController.toTabPage(..) invoke, param:[creative, org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:07:44,107 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,107 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a1315b5] was not registered for synchronization because synchronization is not active
+23:07:44,107 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,107 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,107 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:07:44,107 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:07:44.107(Timestamp), CHROME(String)
+23:07:44,246 DEBUG insert - <==    Updates: 1
+23:07:44,246 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a1315b5]
+23:07:44,246 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,247 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,247 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@401a8001] was not registered for synchronization because synchronization is not active
+23:07:44,247 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,247 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,247 DEBUG getByTabNameEn - ==>  Preparing: select id,tab_name,tab_name_en from tab where tab_name_en = ? 
+23:07:44,247 DEBUG getByTabNameEn - ==> Parameters: creative(String)
+23:07:44,248 DEBUG getByTabNameEn - <==      Total: 1
+23:07:44,248 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@401a8001]
+23:07:44,248 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,248 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,248 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f77085] was not registered for synchronization because synchronization is not active
+23:07:44,248 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,248 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,248 DEBUG listTopicsAndUsersOfTab - ==>  Preparing: select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar , tab.tab_name,count(reply.id) as count_replies from topic left join user on topic.user_id=user.id left join tab on tab.id=topic.tab_id left join reply on topic.id=reply.topic_id where tab.id=? group by topic.id order by topic.id desc ; 
+23:07:44,248 DEBUG listTopicsAndUsersOfTab - ==> Parameters: 3(Integer)
+23:07:44,249 DEBUG listTopicsAndUsersOfTab - <==      Total: 1
+23:07:44,249 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f77085]
+23:07:44,249 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,249 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,249 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@701d4670] was not registered for synchronization because synchronization is not active
+23:07:44,249 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,249 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,249 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:07:44,249 DEBUG getTopicsNum - ==> Parameters: 
+23:07:44,250 DEBUG getTopicsNum - <==      Total: 1
+23:07:44,250 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@701d4670]
+23:07:44,250 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,250 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,250 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cea1a1b] was not registered for synchronization because synchronization is not active
+23:07:44,250 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,250 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,250 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:07:44,250 DEBUG getUserCount - ==> Parameters: 
+23:07:44,251 DEBUG getUserCount - <==      Total: 1
+23:07:44,251 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cea1a1b]
+23:07:44,251 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,251 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,251 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@439a8244] was not registered for synchronization because synchronization is not active
+23:07:44,251 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,251 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,251 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:07:44,251 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:07:44,252 DEBUG selectByPrimaryKey - <==      Total: 1
+23:07:44,252 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@439a8244]
+23:07:44,252 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,252 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,252 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@181d68b1] was not registered for synchronization because synchronization is not active
+23:07:44,252 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,252 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,252 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:07:44,252 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:07:44,253 DEBUG listMostCommentsTopics - <==      Total: 5
+23:07:44,253 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@181d68b1]
+23:07:44,253 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,253 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,253 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ca740f5] was not registered for synchronization because synchronization is not active
+23:07:44,253 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,253 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,253 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:07:44,253 DEBUG countVisitor - ==> Parameters: 
+23:07:44,254 DEBUG countVisitor - <==      Total: 1
+23:07:44,254 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ca740f5]
+23:07:44,254 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,254 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'cate'; URL [/WEB-INF/jsp/cate.jsp]] in DispatcherServlet with name 'main'
+23:07:44,254 DEBUG JstlView - Added model object 'tabNameEn' of type [java.lang.String] to request in view with name 'cate'
+23:07:44,254 DEBUG JstlView - Added model object 'topics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:44,254 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:44,254 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:44,254 DEBUG JstlView - Added model object 'tab' of type [pojo.Tab] to request in view with name 'cate'
+23:07:44,254 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'cate'
+23:07:44,254 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:44,254 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:44,254 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.tab' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:44,254 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:44,255 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/cate.jsp] in InternalResourceView 'cate'
+23:07:44,255 DEBUG DispatcherServlet - Successfully completed request
+23:07:44,390 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/tab/jobs]
+23:07:44,390 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /tab/jobs
+23:07:44,390 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toTabPage(java.lang.String,javax.servlet.http.HttpSession)]
+23:07:44,390 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:07:44,390 DEBUG DispatcherServlet - Last-Modified value for [/tab/jobs] is: -1
+23:07:44,390  INFO LogAspect - ---Before method TopicController.toTabPage(..) invoke, param:[jobs, org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:07:44,390 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,390 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@652ae6c1] was not registered for synchronization because synchronization is not active
+23:07:44,390 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,390 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,390 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:07:44,391 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:07:44.39(Timestamp), CHROME(String)
+23:07:44,506 DEBUG insert - <==    Updates: 1
+23:07:44,507 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@652ae6c1]
+23:07:44,507 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,507 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,507 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10689f8b] was not registered for synchronization because synchronization is not active
+23:07:44,507 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,507 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,507 DEBUG getByTabNameEn - ==>  Preparing: select id,tab_name,tab_name_en from tab where tab_name_en = ? 
+23:07:44,507 DEBUG getByTabNameEn - ==> Parameters: jobs(String)
+23:07:44,508 DEBUG getByTabNameEn - <==      Total: 1
+23:07:44,508 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@10689f8b]
+23:07:44,508 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,508 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,508 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@760a8c99] was not registered for synchronization because synchronization is not active
+23:07:44,508 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,508 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,508 DEBUG listTopicsAndUsersOfTab - ==>  Preparing: select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar , tab.tab_name,count(reply.id) as count_replies from topic left join user on topic.user_id=user.id left join tab on tab.id=topic.tab_id left join reply on topic.id=reply.topic_id where tab.id=? group by topic.id order by topic.id desc ; 
+23:07:44,509 DEBUG listTopicsAndUsersOfTab - ==> Parameters: 4(Integer)
+23:07:44,510 DEBUG listTopicsAndUsersOfTab - <==      Total: 0
+23:07:44,510 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@760a8c99]
+23:07:44,510 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,510 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,510 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ac48c6c] was not registered for synchronization because synchronization is not active
+23:07:44,510 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,510 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,510 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:07:44,511 DEBUG getTopicsNum - ==> Parameters: 
+23:07:44,511 DEBUG getTopicsNum - <==      Total: 1
+23:07:44,512 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ac48c6c]
+23:07:44,512 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,512 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,512 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6e64e915] was not registered for synchronization because synchronization is not active
+23:07:44,512 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,512 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,512 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:07:44,512 DEBUG getUserCount - ==> Parameters: 
+23:07:44,513 DEBUG getUserCount - <==      Total: 1
+23:07:44,513 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6e64e915]
+23:07:44,513 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,513 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,513 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7b675779] was not registered for synchronization because synchronization is not active
+23:07:44,513 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,513 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,513 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:07:44,514 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:07:44,515 DEBUG selectByPrimaryKey - <==      Total: 1
+23:07:44,515 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7b675779]
+23:07:44,515 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,515 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,515 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3366908b] was not registered for synchronization because synchronization is not active
+23:07:44,515 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,515 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,515 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:07:44,515 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:07:44,516 DEBUG listMostCommentsTopics - <==      Total: 5
+23:07:44,516 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3366908b]
+23:07:44,516 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,517 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,517 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@90afc48] was not registered for synchronization because synchronization is not active
+23:07:44,517 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,517 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,517 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:07:44,517 DEBUG countVisitor - ==> Parameters: 
+23:07:44,518 DEBUG countVisitor - <==      Total: 1
+23:07:44,518 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@90afc48]
+23:07:44,518 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,519 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'cate'; URL [/WEB-INF/jsp/cate.jsp]] in DispatcherServlet with name 'main'
+23:07:44,519 DEBUG JstlView - Added model object 'tabNameEn' of type [java.lang.String] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Added model object 'topics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Added model object 'tab' of type [pojo.Tab] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.tab' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:44,519 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/cate.jsp] in InternalResourceView 'cate'
+23:07:44,520 DEBUG DispatcherServlet - Successfully completed request
+23:07:44,722 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/tab/deals]
+23:07:44,722 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /tab/deals
+23:07:44,722 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toTabPage(java.lang.String,javax.servlet.http.HttpSession)]
+23:07:44,723 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:07:44,723 DEBUG DispatcherServlet - Last-Modified value for [/tab/deals] is: -1
+23:07:44,723  INFO LogAspect - ---Before method TopicController.toTabPage(..) invoke, param:[deals, org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:07:44,723 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,723 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6f3c3281] was not registered for synchronization because synchronization is not active
+23:07:44,723 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,723 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,723 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:07:44,724 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:07:44.723(Timestamp), CHROME(String)
+23:07:44,842 DEBUG insert - <==    Updates: 1
+23:07:44,842 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6f3c3281]
+23:07:44,842 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,842 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,843 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fe5d15] was not registered for synchronization because synchronization is not active
+23:07:44,843 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,843 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,843 DEBUG getByTabNameEn - ==>  Preparing: select id,tab_name,tab_name_en from tab where tab_name_en = ? 
+23:07:44,843 DEBUG getByTabNameEn - ==> Parameters: deals(String)
+23:07:44,844 DEBUG getByTabNameEn - <==      Total: 1
+23:07:44,845 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48fe5d15]
+23:07:44,845 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,845 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,845 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5a3af72d] was not registered for synchronization because synchronization is not active
+23:07:44,845 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,845 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,846 DEBUG listTopicsAndUsersOfTab - ==>  Preparing: select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar , tab.tab_name,count(reply.id) as count_replies from topic left join user on topic.user_id=user.id left join tab on tab.id=topic.tab_id left join reply on topic.id=reply.topic_id where tab.id=? group by topic.id order by topic.id desc ; 
+23:07:44,846 DEBUG listTopicsAndUsersOfTab - ==> Parameters: 5(Integer)
+23:07:44,848 DEBUG listTopicsAndUsersOfTab - <==      Total: 0
+23:07:44,848 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5a3af72d]
+23:07:44,848 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,848 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,848 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73a4df94] was not registered for synchronization because synchronization is not active
+23:07:44,848 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,848 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,848 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:07:44,849 DEBUG getTopicsNum - ==> Parameters: 
+23:07:44,850 DEBUG getTopicsNum - <==      Total: 1
+23:07:44,850 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73a4df94]
+23:07:44,850 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,850 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,850 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57e9a8d2] was not registered for synchronization because synchronization is not active
+23:07:44,850 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,850 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,850 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:07:44,850 DEBUG getUserCount - ==> Parameters: 
+23:07:44,851 DEBUG getUserCount - <==      Total: 1
+23:07:44,851 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57e9a8d2]
+23:07:44,851 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,851 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,851 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@13e8240a] was not registered for synchronization because synchronization is not active
+23:07:44,851 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,851 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,852 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:07:44,852 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:07:44,853 DEBUG selectByPrimaryKey - <==      Total: 1
+23:07:44,853 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@13e8240a]
+23:07:44,853 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,853 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,853 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4026ff1] was not registered for synchronization because synchronization is not active
+23:07:44,853 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,853 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,853 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:07:44,853 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:07:44,854 DEBUG listMostCommentsTopics - <==      Total: 5
+23:07:44,855 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4026ff1]
+23:07:44,855 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,855 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:44,855 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f41037b] was not registered for synchronization because synchronization is not active
+23:07:44,855 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:44,855 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:44,855 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:07:44,855 DEBUG countVisitor - ==> Parameters: 
+23:07:44,856 DEBUG countVisitor - <==      Total: 1
+23:07:44,856 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f41037b]
+23:07:44,856 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:44,857 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'cate'; URL [/WEB-INF/jsp/cate.jsp]] in DispatcherServlet with name 'main'
+23:07:44,857 DEBUG JstlView - Added model object 'tabNameEn' of type [java.lang.String] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Added model object 'topics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Added model object 'tab' of type [pojo.Tab] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.tab' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:44,857 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/cate.jsp] in InternalResourceView 'cate'
+23:07:44,857 DEBUG DispatcherServlet - Successfully completed request
+23:07:45,391 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/tab/tech]
+23:07:45,391 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /tab/tech
+23:07:45,391 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toTabPage(java.lang.String,javax.servlet.http.HttpSession)]
+23:07:45,391 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:07:45,391 DEBUG DispatcherServlet - Last-Modified value for [/tab/tech] is: -1
+23:07:45,392  INFO LogAspect - ---Before method TopicController.toTabPage(..) invoke, param:[tech, org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:07:45,393 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:45,393 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@614ef50e] was not registered for synchronization because synchronization is not active
+23:07:45,393 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:45,393 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:45,393 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:07:45,394 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:07:45.393(Timestamp), CHROME(String)
+23:07:45,523 DEBUG insert - <==    Updates: 1
+23:07:45,523 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@614ef50e]
+23:07:45,523 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:45,523 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:45,523 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ad327c2] was not registered for synchronization because synchronization is not active
+23:07:45,523 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:45,523 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:45,523 DEBUG getByTabNameEn - ==>  Preparing: select id,tab_name,tab_name_en from tab where tab_name_en = ? 
+23:07:45,523 DEBUG getByTabNameEn - ==> Parameters: tech(String)
+23:07:45,524 DEBUG getByTabNameEn - <==      Total: 1
+23:07:45,524 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ad327c2]
+23:07:45,524 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:45,524 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:45,524 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a644a1e] was not registered for synchronization because synchronization is not active
+23:07:45,524 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:45,524 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:45,524 DEBUG listTopicsAndUsersOfTab - ==>  Preparing: select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar , tab.tab_name,count(reply.id) as count_replies from topic left join user on topic.user_id=user.id left join tab on tab.id=topic.tab_id left join reply on topic.id=reply.topic_id where tab.id=? group by topic.id order by topic.id desc ; 
+23:07:45,524 DEBUG listTopicsAndUsersOfTab - ==> Parameters: 1(Integer)
+23:07:45,526 DEBUG listTopicsAndUsersOfTab - <==      Total: 13
+23:07:45,526 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@a644a1e]
+23:07:45,526 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:45,527 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:45,527 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@628896a4] was not registered for synchronization because synchronization is not active
+23:07:45,527 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:45,527 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:45,527 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:07:45,527 DEBUG getTopicsNum - ==> Parameters: 
+23:07:45,528 DEBUG getTopicsNum - <==      Total: 1
+23:07:45,528 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@628896a4]
+23:07:45,528 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:45,528 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:45,528 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b968e7e] was not registered for synchronization because synchronization is not active
+23:07:45,528 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:45,528 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:45,529 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:07:45,529 DEBUG getUserCount - ==> Parameters: 
+23:07:45,529 DEBUG getUserCount - <==      Total: 1
+23:07:45,529 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b968e7e]
+23:07:45,529 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:45,529 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:45,529 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@440c69a8] was not registered for synchronization because synchronization is not active
+23:07:45,529 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:45,529 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:45,529 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:07:45,530 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:07:45,530 DEBUG selectByPrimaryKey - <==      Total: 1
+23:07:45,530 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@440c69a8]
+23:07:45,530 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:45,530 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:45,530 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5a2db09b] was not registered for synchronization because synchronization is not active
+23:07:45,530 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:45,531 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:45,531 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:07:45,531 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:07:45,532 DEBUG listMostCommentsTopics - <==      Total: 5
+23:07:45,532 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5a2db09b]
+23:07:45,532 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:45,532 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:45,532 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@565c6efd] was not registered for synchronization because synchronization is not active
+23:07:45,532 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:45,532 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:45,532 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:07:45,532 DEBUG countVisitor - ==> Parameters: 
+23:07:45,533 DEBUG countVisitor - <==      Total: 1
+23:07:45,533 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@565c6efd]
+23:07:45,533 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:45,533 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'cate'; URL [/WEB-INF/jsp/cate.jsp]] in DispatcherServlet with name 'main'
+23:07:45,533 DEBUG JstlView - Added model object 'tabNameEn' of type [java.lang.String] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Added model object 'topics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Added model object 'tab' of type [pojo.Tab] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.tab' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:07:45,533 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/cate.jsp] in InternalResourceView 'cate'
+23:07:45,535 DEBUG DispatcherServlet - Successfully completed request
+23:07:46,028 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/t/20]
+23:07:46,028 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /t/20
+23:07:46,029 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toTopic(int,javax.servlet.http.HttpSession)]
+23:07:46,029 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:07:46,029 DEBUG DispatcherServlet - Last-Modified value for [/t/20] is: -1
+23:07:46,029  INFO LogAspect - ---Before method TopicController.toTopic(..) invoke, param:[20, org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:07:46,030 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,030 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d1fab9e] was not registered for synchronization because synchronization is not active
+23:07:46,030 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,031 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,031 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:07:46,031 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:07:46.03(Timestamp), CHROME(String)
+23:07:46,158 DEBUG insert - <==    Updates: 1
+23:07:46,158 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d1fab9e]
+23:07:46,158 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,158 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,158 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@42a408e4] was not registered for synchronization because synchronization is not active
+23:07:46,158 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,158 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,158 DEBUG clickAddOne - ==>  Preparing: update topic set click=click+1 where id=? 
+23:07:46,159 DEBUG clickAddOne - ==> Parameters: 20(Integer)
+23:07:46,159 DEBUG clickAddOne - <==    Updates: 1
+23:07:46,159 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@42a408e4]
+23:07:46,159 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,159 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,159 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a3bad37] was not registered for synchronization because synchronization is not active
+23:07:46,159 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,159 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,159 DEBUG selectById - ==>  Preparing: select topic.*,user.username,user.avatar from topic,user where topic.user_id=user.id and topic.id=? 
+23:07:46,159 DEBUG selectById - ==> Parameters: 20(Integer)
+23:07:46,160 DEBUG selectById - <==      Total: 1
+23:07:46,160 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a3bad37]
+23:07:46,160 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,161 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,161 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cb645c4] was not registered for synchronization because synchronization is not active
+23:07:46,161 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,161 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,161 DEBUG getRepliesOfTopic - ==>  Preparing: select reply.*,user.username,user.avatar from reply,user where reply.reply_user_id = user.id and reply.topic_id = ? order by create_time ASC; 
+23:07:46,161 DEBUG getRepliesOfTopic - ==> Parameters: 20(Integer)
+23:07:46,162 DEBUG getRepliesOfTopic - <==      Total: 3
+23:07:46,162 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cb645c4]
+23:07:46,162 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,162 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,162 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fc27242] was not registered for synchronization because synchronization is not active
+23:07:46,163 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,163 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,163 DEBUG getRepliesNum - ==>  Preparing: SELECT count(id) FROM reply WHERE topic_id = ? 
+23:07:46,163 DEBUG getRepliesNum - ==> Parameters: 20(Integer)
+23:07:46,163 DEBUG getRepliesNum - <==      Total: 1
+23:07:46,163 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fc27242]
+23:07:46,163 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,163 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,163 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56caaa1f] was not registered for synchronization because synchronization is not active
+23:07:46,163 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,163 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,163 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:07:46,164 DEBUG getTopicsNum - ==> Parameters: 
+23:07:46,164 DEBUG getTopicsNum - <==      Total: 1
+23:07:46,164 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56caaa1f]
+23:07:46,164 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,164 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,164 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fb70474] was not registered for synchronization because synchronization is not active
+23:07:46,164 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,164 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,164 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:07:46,164 DEBUG getUserCount - ==> Parameters: 
+23:07:46,164 DEBUG getUserCount - <==      Total: 1
+23:07:46,165 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4fb70474]
+23:07:46,165 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,165 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,165 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@704e55bb] was not registered for synchronization because synchronization is not active
+23:07:46,165 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,165 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,165 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:07:46,165 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:07:46,165 DEBUG selectByPrimaryKey - <==      Total: 1
+23:07:46,165 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@704e55bb]
+23:07:46,166 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,166 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,166 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2be6caa1] was not registered for synchronization because synchronization is not active
+23:07:46,166 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,166 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,166 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:07:46,166 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:07:46,166 DEBUG listMostCommentsTopics - <==      Total: 5
+23:07:46,166 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2be6caa1]
+23:07:46,166 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,167 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:07:46,167 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cecc147] was not registered for synchronization because synchronization is not active
+23:07:46,167 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:07:46,167 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:07:46,167 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:07:46,167 DEBUG countVisitor - ==> Parameters: 
+23:07:46,167 DEBUG countVisitor - <==      Total: 1
+23:07:46,167 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cecc147]
+23:07:46,167 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:07:46,167 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'detail'; URL [/WEB-INF/jsp/detail.jsp]] in DispatcherServlet with name 'main'
+23:07:46,167 DEBUG JstlView - Added model object 'id' of type [java.lang.Integer] to request in view with name 'detail'
+23:07:46,167 DEBUG JstlView - Added model object 'topic' of type [pojo.Topic] to request in view with name 'detail'
+23:07:46,167 DEBUG JstlView - Added model object 'replies' of type [java.util.ArrayList] to request in view with name 'detail'
+23:07:46,168 DEBUG JstlView - Added model object 'repliesNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:07:46,168 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:07:46,168 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:07:46,168 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'detail'
+23:07:46,168 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'detail'
+23:07:46,168 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:07:46,168 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.topic' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'detail'
+23:07:46,168 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'detail'
+23:07:46,168 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/detail.jsp] in InternalResourceView 'detail'
+23:07:46,170 DEBUG DispatcherServlet - Successfully completed request
+23:10:01,839 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/t/20]
+23:10:01,839 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /t/20
+23:10:01,841 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toTopic(int,javax.servlet.http.HttpSession)]
+23:10:01,841 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:10:01,841 DEBUG DispatcherServlet - Last-Modified value for [/t/20] is: -1
+23:10:01,841  INFO LogAspect - ---Before method TopicController.toTopic(..) invoke, param:[20, org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:10:01,841 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,841 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78eb3a9a] was not registered for synchronization because synchronization is not active
+23:10:01,841 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,842 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,842 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:10:01,842 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:10:01.841(Timestamp), CHROME(String)
+23:10:01,879 DEBUG insert - <==    Updates: 1
+23:10:01,879 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78eb3a9a]
+23:10:01,879 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,879 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,879 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70657efa] was not registered for synchronization because synchronization is not active
+23:10:01,879 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,879 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,879 DEBUG clickAddOne - ==>  Preparing: update topic set click=click+1 where id=? 
+23:10:01,879 DEBUG clickAddOne - ==> Parameters: 20(Integer)
+23:10:01,880 DEBUG clickAddOne - <==    Updates: 1
+23:10:01,880 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@70657efa]
+23:10:01,880 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,880 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,880 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@233e0217] was not registered for synchronization because synchronization is not active
+23:10:01,880 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,880 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,880 DEBUG selectById - ==>  Preparing: select topic.*,user.username,user.avatar from topic,user where topic.user_id=user.id and topic.id=? 
+23:10:01,880 DEBUG selectById - ==> Parameters: 20(Integer)
+23:10:01,881 DEBUG selectById - <==      Total: 1
+23:10:01,881 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@233e0217]
+23:10:01,881 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,881 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,881 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@144e3e4d] was not registered for synchronization because synchronization is not active
+23:10:01,881 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,881 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,881 DEBUG getRepliesOfTopic - ==>  Preparing: select reply.*,user.username,user.avatar from reply,user where reply.reply_user_id = user.id and reply.topic_id = ? order by create_time ASC; 
+23:10:01,881 DEBUG getRepliesOfTopic - ==> Parameters: 20(Integer)
+23:10:01,884 DEBUG getRepliesOfTopic - <==      Total: 3
+23:10:01,885 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@144e3e4d]
+23:10:01,885 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,885 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,885 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@833f4fa] was not registered for synchronization because synchronization is not active
+23:10:01,885 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,885 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,885 DEBUG getRepliesNum - ==>  Preparing: SELECT count(id) FROM reply WHERE topic_id = ? 
+23:10:01,885 DEBUG getRepliesNum - ==> Parameters: 20(Integer)
+23:10:01,886 DEBUG getRepliesNum - <==      Total: 1
+23:10:01,886 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@833f4fa]
+23:10:01,886 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,886 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,886 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bc8258c] was not registered for synchronization because synchronization is not active
+23:10:01,886 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,886 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,886 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:10:01,886 DEBUG getTopicsNum - ==> Parameters: 
+23:10:01,887 DEBUG getTopicsNum - <==      Total: 1
+23:10:01,887 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bc8258c]
+23:10:01,887 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,887 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,887 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3370f970] was not registered for synchronization because synchronization is not active
+23:10:01,887 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,887 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,887 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:10:01,887 DEBUG getUserCount - ==> Parameters: 
+23:10:01,887 DEBUG getUserCount - <==      Total: 1
+23:10:01,888 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3370f970]
+23:10:01,888 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,888 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,888 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52157e2d] was not registered for synchronization because synchronization is not active
+23:10:01,888 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,888 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,888 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:10:01,889 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:10:01,889 DEBUG selectByPrimaryKey - <==      Total: 1
+23:10:01,889 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52157e2d]
+23:10:01,889 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,889 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,889 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62809205] was not registered for synchronization because synchronization is not active
+23:10:01,890 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,890 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,890 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:10:01,890 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:10:01,890 DEBUG listMostCommentsTopics - <==      Total: 5
+23:10:01,890 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62809205]
+23:10:01,890 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,890 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:01,890 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5baee9b5] was not registered for synchronization because synchronization is not active
+23:10:01,891 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:01,891 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:01,891 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:10:01,891 DEBUG countVisitor - ==> Parameters: 
+23:10:01,891 DEBUG countVisitor - <==      Total: 1
+23:10:01,891 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5baee9b5]
+23:10:01,891 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:01,891 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'detail'; URL [/WEB-INF/jsp/detail.jsp]] in DispatcherServlet with name 'main'
+23:10:01,891 DEBUG JstlView - Added model object 'id' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:01,891 DEBUG JstlView - Added model object 'topic' of type [pojo.Topic] to request in view with name 'detail'
+23:10:01,891 DEBUG JstlView - Added model object 'replies' of type [java.util.ArrayList] to request in view with name 'detail'
+23:10:01,892 DEBUG JstlView - Added model object 'repliesNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:01,892 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:01,892 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:01,892 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'detail'
+23:10:01,892 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'detail'
+23:10:01,892 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:01,892 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.topic' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'detail'
+23:10:01,892 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'detail'
+23:10:01,892 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/detail.jsp] in InternalResourceView 'detail'
+23:10:01,895 DEBUG DispatcherServlet - Successfully completed request
+23:10:02,402 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/t/20]
+23:10:02,402 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /t/20
+23:10:02,402 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toTopic(int,javax.servlet.http.HttpSession)]
+23:10:02,402 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:10:02,402 DEBUG DispatcherServlet - Last-Modified value for [/t/20] is: -1
+23:10:02,403  INFO LogAspect - ---Before method TopicController.toTopic(..) invoke, param:[20, org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:10:02,403 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,403 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@aea60b0] was not registered for synchronization because synchronization is not active
+23:10:02,403 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,403 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,403 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:10:02,403 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:10:02.403(Timestamp), CHROME(String)
+23:10:02,547 DEBUG insert - <==    Updates: 1
+23:10:02,547 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@aea60b0]
+23:10:02,547 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,547 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,547 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b57bdb3] was not registered for synchronization because synchronization is not active
+23:10:02,547 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,547 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,547 DEBUG clickAddOne - ==>  Preparing: update topic set click=click+1 where id=? 
+23:10:02,547 DEBUG clickAddOne - ==> Parameters: 20(Integer)
+23:10:02,548 DEBUG clickAddOne - <==    Updates: 1
+23:10:02,548 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b57bdb3]
+23:10:02,548 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,548 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,549 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2207d133] was not registered for synchronization because synchronization is not active
+23:10:02,549 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,549 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,549 DEBUG selectById - ==>  Preparing: select topic.*,user.username,user.avatar from topic,user where topic.user_id=user.id and topic.id=? 
+23:10:02,549 DEBUG selectById - ==> Parameters: 20(Integer)
+23:10:02,550 DEBUG selectById - <==      Total: 1
+23:10:02,551 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2207d133]
+23:10:02,551 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,551 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,551 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14f368b] was not registered for synchronization because synchronization is not active
+23:10:02,551 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,551 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,551 DEBUG getRepliesOfTopic - ==>  Preparing: select reply.*,user.username,user.avatar from reply,user where reply.reply_user_id = user.id and reply.topic_id = ? order by create_time ASC; 
+23:10:02,551 DEBUG getRepliesOfTopic - ==> Parameters: 20(Integer)
+23:10:02,553 DEBUG getRepliesOfTopic - <==      Total: 3
+23:10:02,553 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14f368b]
+23:10:02,553 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,553 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,553 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7df0d7ae] was not registered for synchronization because synchronization is not active
+23:10:02,553 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,553 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,554 DEBUG getRepliesNum - ==>  Preparing: SELECT count(id) FROM reply WHERE topic_id = ? 
+23:10:02,554 DEBUG getRepliesNum - ==> Parameters: 20(Integer)
+23:10:02,555 DEBUG getRepliesNum - <==      Total: 1
+23:10:02,555 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7df0d7ae]
+23:10:02,555 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,555 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,555 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e1be250] was not registered for synchronization because synchronization is not active
+23:10:02,555 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,555 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,555 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:10:02,555 DEBUG getTopicsNum - ==> Parameters: 
+23:10:02,556 DEBUG getTopicsNum - <==      Total: 1
+23:10:02,556 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e1be250]
+23:10:02,556 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,556 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,556 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30561ab1] was not registered for synchronization because synchronization is not active
+23:10:02,556 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,556 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,556 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:10:02,556 DEBUG getUserCount - ==> Parameters: 
+23:10:02,557 DEBUG getUserCount - <==      Total: 1
+23:10:02,557 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30561ab1]
+23:10:02,557 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,557 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,557 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8c4cc83] was not registered for synchronization because synchronization is not active
+23:10:02,557 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,558 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,558 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:10:02,558 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:10:02,558 DEBUG selectByPrimaryKey - <==      Total: 1
+23:10:02,558 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8c4cc83]
+23:10:02,559 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,559 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,559 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b41c57b] was not registered for synchronization because synchronization is not active
+23:10:02,559 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,559 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,559 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:10:02,559 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:10:02,560 DEBUG listMostCommentsTopics - <==      Total: 5
+23:10:02,560 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b41c57b]
+23:10:02,560 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,560 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:02,560 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bc3a026] was not registered for synchronization because synchronization is not active
+23:10:02,560 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:02,560 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:02,560 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:10:02,560 DEBUG countVisitor - ==> Parameters: 
+23:10:02,561 DEBUG countVisitor - <==      Total: 1
+23:10:02,561 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bc3a026]
+23:10:02,561 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:02,561 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'detail'; URL [/WEB-INF/jsp/detail.jsp]] in DispatcherServlet with name 'main'
+23:10:02,561 DEBUG JstlView - Added model object 'id' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'topic' of type [pojo.Topic] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'replies' of type [java.util.ArrayList] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'repliesNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.topic' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'detail'
+23:10:02,561 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'detail'
+23:10:02,562 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/detail.jsp] in InternalResourceView 'detail'
+23:10:02,562 DEBUG DispatcherServlet - Successfully completed request
+23:10:04,070 DEBUG DispatcherServlet - DispatcherServlet with name 'main' processing GET request for [/]
+23:10:04,070 DEBUG RequestMappingHandlerMapping - Looking up handler method for path /
+23:10:04,070 DEBUG RequestMappingHandlerMapping - Returning handler method [public org.springframework.web.servlet.ModelAndView controller.TopicController.toMain(javax.servlet.http.HttpSession)]
+23:10:04,070 DEBUG DefaultListableBeanFactory - Returning cached instance of singleton bean 'topicController'
+23:10:04,070 DEBUG DispatcherServlet - Last-Modified value for [/] is: -1
+23:10:04,070  INFO LogAspect - ---Before method TopicController.toMain(..) invoke, param:[org.apache.catalina.session.StandardSessionFacade@18f084f1]---
+23:10:04,070 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:04,070 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@83fde48] was not registered for synchronization because synchronization is not active
+23:10:04,070 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:04,070 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:04,070 DEBUG insert - ==>  Preparing: insert into visitor (IP,visit_time,device) values (?,?,?) 
+23:10:04,070 DEBUG insert - ==> Parameters: 0:0:0:0:0:0:0:1(String), 2019-10-10 23:10:04.07(Timestamp), CHROME(String)
+23:10:04,167 DEBUG insert - <==    Updates: 1
+23:10:04,167 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@83fde48]
+23:10:04,167 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:04,167 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:04,167 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4420a943] was not registered for synchronization because synchronization is not active
+23:10:04,167 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:04,168 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:04,168 DEBUG listTopicsAndUsers - ==>  Preparing: select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar , tab.tab_name,count(reply.id) as count_replies from topic LEFT JOIN user on topic.user_id = user.id LEFT JOIN tab on tab.id=topic.tab_id LEFT JOIN reply on topic.id=reply.topic_id group by topic.id order by topic.id desc ; 
+23:10:04,168 DEBUG listTopicsAndUsers - ==> Parameters: 
+23:10:04,170 DEBUG listTopicsAndUsers - <==      Total: 17
+23:10:04,170 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4420a943]
+23:10:04,170 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:04,170 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:04,170 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44d054e7] was not registered for synchronization because synchronization is not active
+23:10:04,170 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:04,170 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:04,170 DEBUG getTopicsNum - ==>  Preparing: select COUNT(*) from topic; 
+23:10:04,171 DEBUG getTopicsNum - ==> Parameters: 
+23:10:04,172 DEBUG getTopicsNum - <==      Total: 1
+23:10:04,172 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44d054e7]
+23:10:04,172 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:04,172 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:04,172 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5660ba26] was not registered for synchronization because synchronization is not active
+23:10:04,172 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:04,172 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:04,172 DEBUG getUserCount - ==>  Preparing: select count(*) from user 
+23:10:04,172 DEBUG getUserCount - ==> Parameters: 
+23:10:04,172 DEBUG getUserCount - <==      Total: 1
+23:10:04,172 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5660ba26]
+23:10:04,172 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:04,172 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:04,172 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28dd2537] was not registered for synchronization because synchronization is not active
+23:10:04,173 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:04,173 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:04,173 DEBUG selectByPrimaryKey - ==>  Preparing: select id,username,password,email,phone_num,create_time,update_time,credit,avatar,type from user where id=?; 
+23:10:04,173 DEBUG selectByPrimaryKey - ==> Parameters: 10(Integer)
+23:10:04,173 DEBUG selectByPrimaryKey - <==      Total: 1
+23:10:04,173 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28dd2537]
+23:10:04,173 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:04,173 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:04,174 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@390ad0f5] was not registered for synchronization because synchronization is not active
+23:10:04,174 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:04,174 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:04,174 DEBUG countVisitor - ==>  Preparing: select count(*) from visitor; 
+23:10:04,174 DEBUG countVisitor - ==> Parameters: 
+23:10:04,174 DEBUG countVisitor - <==      Total: 1
+23:10:04,174 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@390ad0f5]
+23:10:04,174 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:04,174 DEBUG SqlSessionUtils - Creating a new SqlSession
+23:10:04,174 DEBUG SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54eb68d] was not registered for synchronization because synchronization is not active
+23:10:04,174 DEBUG DataSourceUtils - Fetching JDBC Connection from DataSource
+23:10:04,174 DEBUG SpringManagedTransaction - JDBC Connection [com.mysql.jdbc.JDBC4Connection@54e205cd] will not be managed by Spring
+23:10:04,174 DEBUG listMostCommentsTopics - ==>  Preparing: select topic.id,topic.title,count(reply.id) as count_replies from topic ,reply where topic.id=reply.topic_id group by topic.id order by count_replies desc limit 5; 
+23:10:04,174 DEBUG listMostCommentsTopics - ==> Parameters: 
+23:10:04,175 DEBUG listMostCommentsTopics - <==      Total: 5
+23:10:04,175 DEBUG SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54eb68d]
+23:10:04,175 DEBUG DataSourceUtils - Returning JDBC Connection to DataSource
+23:10:04,175 DEBUG DispatcherServlet - Rendering view [org.springframework.web.servlet.view.JstlView: name 'cate'; URL [/WEB-INF/jsp/cate.jsp]] in DispatcherServlet with name 'main'
+23:10:04,175 DEBUG JstlView - Added model object 'topics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:10:04,175 DEBUG JstlView - Added model object 'hotestTopics' of type [java.util.ArrayList] to request in view with name 'cate'
+23:10:04,176 DEBUG JstlView - Added model object 'topicsNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:10:04,176 DEBUG JstlView - Added model object 'usersNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:10:04,176 DEBUG JstlView - Added model object 'user' of type [pojo.User] to request in view with name 'cate'
+23:10:04,176 DEBUG JstlView - Added model object 'visitorNum' of type [java.lang.Integer] to request in view with name 'cate'
+23:10:04,176 DEBUG JstlView - Added model object 'org.springframework.validation.BindingResult.user' of type [org.springframework.validation.BeanPropertyBindingResult] to request in view with name 'cate'
+23:10:04,176 DEBUG JstlView - Forwarding to resource [/WEB-INF/jsp/cate.jsp] in InternalResourceView 'cate'
+23:10:04,178 DEBUG DispatcherServlet - Successfully completed request
