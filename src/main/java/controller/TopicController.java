@@ -225,11 +225,28 @@ public class TopicController {
         mv.addObject("visitorNum",visitorNum);
         return mv;
     }
+    //删除主题
     @RequestMapping("/topic/delete/{topicId}")
     @Transactional
     public String delete(@PathVariable("topicId")Integer topicId){
         replyService.deleteByTopicId(topicId);
         topicService.deleteByPrimaryKey(topicId);
         return "redirect:/";
+    }
+    //给主题取消精品
+    @RequestMapping("/topic/cancelEssence/{topicId}")
+    public String cancelEssence(@PathVariable("topicId")Integer topicId){
+        Topic topic=topicService.selectById(topicId);
+        topic.setIsEssence(0);
+        topicService.updateByPrimaryKeySelective(topic);
+        return "redirect:/t/"+topicId;
+    }
+    //给主题加精品
+    @RequestMapping("/topic/addEssence/{topicId}")
+    public String addEssence(@PathVariable("topicId")Integer topicId){
+        Topic topic=topicService.selectById(topicId);
+        topic.setIsEssence(1);
+        topicService.updateByPrimaryKeySelective(topic);
+        return "redirect:/t/"+topicId;
     }
 }

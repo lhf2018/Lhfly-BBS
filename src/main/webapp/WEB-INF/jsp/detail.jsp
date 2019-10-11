@@ -22,16 +22,19 @@
             </div>
             <h3><c:if test="${topic.isEssence==1}"><p style="color: #c9302c;display: inline">[ 精品 ]</p> </c:if>${topic.title}</h3><br/>
             <div>
+                <div style="float: right;margin-top: -70px" >
+                    <img width="50px" height="50px" src="${topic.user.avatar}" class="img-rounded">
+                </div>
                 <a href="/member/${topic.user.username}"><span ><strong>${topic.user.username}</strong></span></a>&nbsp;&nbsp;
                 <small class="text-muted">创建于: ${topic.localCreateTime}&nbsp;&nbsp;&nbsp;</small>&nbsp;&nbsp;
                 <small class="text-muted">阅读量: ${topic.click}</small>
-                <c:if test="${user.type==1}"><a id="deleteTopic" href="/topic/delete/${topic.id}"><p style="float:right;color:red;display: inline">删除主题</p></a></c:if>
+                <c:if test="${user.type==1}"><a id="deleteTopic" href="/topic/delete/${topic.id}"><p class="btn btn-success btn-xs" style="text-align:center;float:right;display: inline">删除主题&nbsp;&nbsp;</p></a></c:if>
+                <c:if test="${user.type==1}"><a id="cancelEssence" href="/topic/cancelEssence/${topic.id}"><p class="btn btn-info btn-xs" style="text-align:center;float:right;display: inline">取消精品&nbsp;&nbsp;</p></a></c:if>
+                <c:if test="${user.type==1}"><a id="addEssence" href="/topic/addEssence/${topic.id}"><p class="btn btn-danger btn-xs" style="text-align:center;float:right;display: inline">添加精品&nbsp;&nbsp;</p></a></c:if>
             </div>
         </div>
 
-        <div style="float: right;margin-top: -100px" >
-            <img width="50px" height="50px" src="${topic.user.avatar}" class="img-rounded">
-        </div>
+
     </div>
 
     <ul class="list-group" style="width: 100%">
@@ -110,6 +113,22 @@
     }
     $("#deleteTopic").click(function () {
         var ifSubmit=confirm("确定删除该主题吗?");
+        if (ifSubmit == true){
+
+        }else {
+            return submitValidate(false);
+        }
+    })
+    $("#cancelEssence").click(function () {
+        var ifSubmit=confirm("确定把该主题置为普通帖子吗?");
+        if (ifSubmit == true){
+
+        }else {
+            return submitValidate(false);
+        }
+    })
+    $("#addEssence").click(function () {
+        var ifSubmit=confirm("确定把该主题添加为精品主题吗?");
         if (ifSubmit == true){
 
         }else {
