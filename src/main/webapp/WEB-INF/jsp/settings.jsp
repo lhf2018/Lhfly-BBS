@@ -16,7 +16,7 @@
 <div style="width: 70%;margin:1% 2% 1% 5%;float: left;">
     <div class="panel panel-default" id="main" style="">
         <div class="panel-heading" style="background-color: white">
-            <a href="/">Genesis</a> › 设置
+            <a href="/">Lhfly</a> › 设置
         </div>
 
         <div class="panel-body">

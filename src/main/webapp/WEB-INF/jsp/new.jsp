@@ -7,7 +7,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <script src="/js/jquery-3.2.1.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <title>创作新主题 › Genesis </title>
+    <title>创作新主题 › Lhfly </title>
 </head>
 <body>
 <!-- 引入header文件 -->
@@ -16,7 +16,7 @@
     <div style="width: 70%;margin:1% 2% 1% 5%;float: left;">
     <div class="panel panel-default" id="main" style="">
         <div class="panel-heading" style="background-color: white">
-            <a href="/">Genesis</a> › 创作新主题
+            <a href="/">Lhfly</a> › 创作新主题
         </div>
 
         <div class="panel-body">
@@ -40,7 +40,10 @@
                         </select>
                     </div>
                 </div><br/>
-                <input type="submit" class="btn btn-default btn-sm" value="发布主题">
+                <br/>
+                <div style="text-align: center">
+                    <input type="submit" class="btn btn-success btn-sm" value="发布主题">
+                </div>
 
             </form>
         </div>
@@ -82,7 +85,7 @@
         <li class="list-group-item">
             <h5>尊重原创</h5>
             <p>
-                请不要发布任何盗版下载链接，包括软件、音乐、电影等等。Genesis是创意工作者的社区，我们尊重原创。
+                请不要发布任何盗版下载链接，包括软件、音乐、电影等等。Lhfly是创意工作者的社区，我们尊重原创。
             </p>
         </li>
 

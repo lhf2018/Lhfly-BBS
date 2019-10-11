@@ -20,7 +20,7 @@
             <div class="panel-heading" style="background-color: white">
                 <a href="/">Lhfly</a> › 主题
             </div>
-            <h3><c:if test="${topic.isEssence==1}"><p style="color: #c9302c;display: inline">[ 精品 ]</p> </c:if>${topic.title}</h3><br/>
+            <h3 style="color: black;font-weight: bold"><c:if test="${topic.isEssence==1}"><p style="color: #c9302c;display: inline">[ 精品 ]</p> </c:if>${topic.title}</h3><br/>
             <div>
                 <div style="float: right;margin-top: -70px" >
                     <img width="50px" height="50px" src="${topic.user.avatar}" class="img-rounded">
@@ -28,9 +28,9 @@
                 <a href="/member/${topic.user.username}"><span ><strong>${topic.user.username}</strong></span></a>&nbsp;&nbsp;
                 <small class="text-muted">创建于: ${topic.localCreateTime}&nbsp;&nbsp;&nbsp;</small>&nbsp;&nbsp;
                 <small class="text-muted">阅读量: ${topic.click}</small>
-                <c:if test="${user.type==1}"><a id="deleteTopic" href="/topic/delete/${topic.id}"><p class="btn btn-success btn-xs" style="text-align:center;float:right;display: inline">删除主题&nbsp;&nbsp;</p></a></c:if>
-                <c:if test="${user.type==1}"><a id="cancelEssence" href="/topic/cancelEssence/${topic.id}"><p class="btn btn-info btn-xs" style="text-align:center;float:right;display: inline">取消精品&nbsp;&nbsp;</p></a></c:if>
-                <c:if test="${user.type==1}"><a id="addEssence" href="/topic/addEssence/${topic.id}"><p class="btn btn-danger btn-xs" style="text-align:center;float:right;display: inline">添加精品&nbsp;&nbsp;</p></a></c:if>
+                <c:if test="${user.type==1}"><a id="deleteTopic" href="/topic/delete/${topic.id}"><p class="btn btn-success btn-xs" style="margin-left:5px;text-align:center;float:right;display: inline">删除主题&nbsp;&nbsp;</p></a></c:if>
+                <c:if test="${user.type==1}"><a id="cancelEssence" href="/topic/cancelEssence/${topic.id}"><p class="btn btn-info btn-xs" style="margin-left:5px;text-align:center;float:right;display: inline">取消精品&nbsp;&nbsp;</p></a></c:if>
+                <c:if test="${user.type==1}"><a id="addEssence" href="/topic/addEssence/${topic.id}"><p class="btn btn-danger btn-xs" style="margin-left:5px;text-align:center;float:right;display: inline">添加精品&nbsp;&nbsp;</p></a></c:if>
             </div>
         </div>
 
@@ -61,11 +61,11 @@
         <!-- 遍历评论 -->
         <c:forEach items="${replies}" var="reply">
         <li class="list-group-item">
-            <div style="height: 50px">
-                <div style="float: left;width: 6%;margin-bottom: 5px">
+            <div style="display: inline-block;margin:2px">
+                <div style="width: 50px;margin-right:10px;height: 110px;vertical-align:top;display: inline-block">
                     <img width="50px" height="50px" src="${reply.user.avatar} " class="img-rounded">
                 </div>
-                <div style="width: 89%;float: left">
+                <div style="width: 900px;height: 100px;margin-top:2px;display: inline-block">
                     <a href="/member/${reply.user.username}"><strong>${reply.user.username}</strong></a>&nbsp;&nbsp;
                     <small class="text-muted">${reply.localCreateTime}</small>
                     <br/>

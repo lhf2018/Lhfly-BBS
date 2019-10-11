@@ -4,19 +4,22 @@
 <html lang="en">
 <head>
     <meta name="Content-Type"  content="text/html;charset=utf-8">
-    <meta name="keywords" content="Genesis,论坛,社区,程序员">
+    <meta name="keywords" content="Lhfly,论坛,社区,程序员">
     <title>Lhfly - 一个分享创造的开发者社区  </title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <script src="/js/jquery-3.2.1.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <style>
         li {list-style-type:none;}
-        html, body {
-            height: 100%;
-            font-size: 14px;
-            color: #525252;
-            font-family: NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
-            background: #f0f2f5;
+        /*html, body {*/
+            /*height: 100%;*/
+            /*font-size: 14px;*/
+            /*color: #525252;*/
+            /*font-family: NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;*/
+            /*background: #f0f2f5;*/
+        /*}*/
+        body{
+            /*background:black;*/
         }
         .footer {
             background-color: #fff;
@@ -54,10 +57,12 @@
 <!-- 引入header文件 -->
 <%@ include file="header.jsp"%>
 
-<div class="panel panel-default" id="main" style="width: 70%;margin:1% 2% 20% 5%;float: left;">
-    <div class="panel-heading" style="background-color: white">
-        <a href="/topic/active" style="margin-right: 2%">活跃</a><a href="/topic/essence" style="margin-right: 2%">精华</a><a href="/topic/recent" style="margin-right: 2%">最近</a>
-    </div>
+<div class="panel panel-success" id="main" style="width: 70%;margin:1% 2% 20% 5%;float: left;">
+    <ul class="nav nav-tabs" style="background:linear-gradient(#f1f1f1,#c4e3f3);">
+        <li><a style="color: black" href="/topic/active">活跃</a></li>
+        <li><a style="color: black" href="/topic/essence">精华</a></li>
+        <li><a style="color: black" href="/topic/recent">最近</a></li>
+    </ul>
 
 <ul class="list-group" style="width: 100%">
     <c:forEach items="${topics}" var="topic">
@@ -67,7 +72,7 @@
                 <img width="50px" height="50px" src="${topic.user.avatar}" class="img-rounded">
             </div>
             <div style="width: 89%;float: left">
-                <a href="/t/${topic.id}"><c:if test="${topic.isEssence==1}"><p style="color: #c9302c;display: inline">[ 精品 ]</p></c:if> ${topic.title}</a><br/>
+                <a style="color: black;font-weight: normal;" href="/t/${topic.id}"><c:if test="${topic.isEssence==1}"><p style="color: #c9302c;display: inline">[ 精品 ]</p></c:if> ${topic.title}</a><br/>
                 <div>
                     <a><span class="label label-default" >${topic.tab.tabName}</span></a>&nbsp;&nbsp;&nbsp;
                     <a href="/member/${topic.user.username}"><span ><strong>${topic.user.username}</strong></span></a>&nbsp;&nbsp;&nbsp;

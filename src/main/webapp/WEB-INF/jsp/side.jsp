@@ -6,7 +6,7 @@
 <c:if test="${empty userId}">
     <!-- 未登录 -->
     <div class="panel panel-default" id="sidebar2" style="width: 20%;margin:1% 2% 1% 0%;position:relative;float: right">
-        <div class="panel-heading" style="background-color: white;text-align: center">
+        <div class="panel-heading" style="background:linear-gradient(#f1f1f1,#c4e3f3);text-align: center">
             <blockquote>
                 Lhfly
                 <small>一个分享创造的开发者社区</small>
@@ -23,25 +23,25 @@
 
 <c:if test="${!empty userId}">
     <!-- 已登录 -->
-    <div class="panel panel-default" id="sidebar2" style="width: 20%;margin:1% 2% 1% 0%;position:relative;float: right">
-        <div class="panel-heading" style="background-color: white;text-align: center">
-            <a href="/member/${user.username}">${user.username}</a>
+    <div class="panel panel-success" id="sidebar2" style="width: 20%;margin:1% 2% 1% 0%;position:relative;float: right">
+        <div class="panel-heading" style="background:linear-gradient(#f1f1f1,#c4e3f3);text-align: center">
+            <a style="color:black;" href="/member/${user.username}">${user.username}</a>
         </div>
         <ul class="list-group" style="width: 100%">
-            <li class="list-group-item"><a href="/new">创作新主题</a></li>
-            <li class="list-group-item"><a href="">0条未读提醒</a></li>
-            <li class="list-group-item"><a href="">积分:${user.credit}</a></li>
+            <a class="list-group-item" href="/new">创作新主题</a>
+            <a class="list-group-item" href="">0 条未读提醒</a>
+            <a class="list-group-item" href="">积分:${user.credit}</a>
         </ul>
     </div>
 </c:if>
 
 <div class="panel panel-default" id="sidebar1" style="width: 20%;margin:1% 2% 1% 0%;position:relative;float: right">
-    <div class="panel-heading" style="background-color: white;text-align: center">
+    <div class="panel-heading" style="background:linear-gradient(#f1f1f1,#c4e3f3);text-align: center">
         热议主题
     </div>
     <ul class="list-group" style="width: 100%">
         <c:forEach items="${hotestTopics}" var="hotestTopic">
-            <li class="list-group-item"><a href="/t/${hotestTopic.id}">${hotestTopic.title}</a></li>
+            <a class="list-group-item" href="/t/${hotestTopic.id}">${hotestTopic.title}</a>
         </c:forEach>
     </ul>
 </div>
