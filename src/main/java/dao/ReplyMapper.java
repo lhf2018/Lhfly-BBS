@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ReplyMapper {
     int deleteByPrimaryKey(Long id);
+    int deleteByTopicId(int id);
     int insert(Reply reply);
     int insertSelective(Reply record);//未实现
     Reply selectByPrimaryKey(Long id);//no complete
@@ -14,4 +15,5 @@ public interface ReplyMapper {
     int updateByPrimaryKeyWithBLOBs(Reply record);//no
     int updateByPrimaryKey(Reply record); //no
     int getRepliesNum(Integer id);
+
 }

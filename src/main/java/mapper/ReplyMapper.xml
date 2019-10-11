@@ -39,4 +39,9 @@
                 #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
                 #{content,jdbcType=LONGVARCHAR})
     </insert>
+    
+    <delete id="deleteByTopicId" parameterType="int">
+        delete from reply
+        where topic_id=#{id,jdbcType=INTEGER}
+    </delete>
 </mapper>

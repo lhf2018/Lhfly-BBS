@@ -25,6 +25,7 @@
                 <a href="/member/${topic.user.username}"><span ><strong>${topic.user.username}</strong></span></a>&nbsp;&nbsp;
                 <small class="text-muted">创建于: ${topic.localCreateTime}&nbsp;&nbsp;&nbsp;</small>&nbsp;&nbsp;
                 <small class="text-muted">阅读量: ${topic.click}</small>
+                <c:if test="${user.type==1}"><a id="deleteTopic" href="/topic/delete/${topic.id}"><p style="float:right;color:red;display: inline">删除主题</p></a></c:if>
             </div>
         </div>
 
@@ -103,6 +104,18 @@
 
 <!-- 引入footer文件 -->
 <%@ include file="footer.jsp"%>
+<script>
+    function submitValidate(flag){
+        return flag;
+    }
+    $("#deleteTopic").click(function () {
+        var ifSubmit=confirm("确定删除该主题吗?");
+        if (ifSubmit == true){
 
+        }else {
+            return submitValidate(false);
+        }
+    })
+</script>
 </body>
 </html>

@@ -72,4 +72,8 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> listEssenceTopics(Integer tabId) {
         return topicMapper.listEssenceTopics(tabId);
     }
+
+    public int deleteByPrimaryKey(int topicId) {
+        return topicMapper.deleteByPrimaryKey(topicId);
+    }
 }

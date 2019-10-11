@@ -24,4 +24,8 @@ public class ReplyServiceImpl implements ReplyService {
     public int repliesNum(Integer topicId) {
         return replyMapper.getRepliesNum(topicId);
     }
+
+    public int deleteByTopicId(int id) {
+        return replyMapper.deleteByTopicId(id);
+    }
 }

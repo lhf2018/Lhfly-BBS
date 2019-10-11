@@ -35,6 +35,9 @@ public interface TopicService {
     List<Topic> listAllEssenceTopics();
     //获取部分精品帖子
     List<Topic> listEssenceTopics(Integer tabId);
+    //删除主题
+    int deleteByPrimaryKey(int topicId);
+
 
 
 }

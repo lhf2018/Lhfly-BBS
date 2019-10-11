@@ -178,11 +178,6 @@
         order by count_replies desc;
     </select>
 
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete from topic
-        where id=${id,jdbcType=INTEGER}
-    </delete>
-
     <insert id="insert" parameterType="pojo.Topic">
         insert into topic(user_id, create_time,
                           update_time, title,
@@ -304,4 +299,9 @@
         set click=click+1
         where id=#{id,jdbcType=INTEGER}
     </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from topic
+        where id=#{id,jdbcType=INTEGER}
+    </delete>
 </mapper>

@@ -2,6 +2,7 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -223,5 +224,12 @@ public class TopicController {
         mv.addObject("hotestTopics", hotestTopics);
         mv.addObject("visitorNum",visitorNum);
         return mv;
+    }
+    @RequestMapping("/topic/delete/{topicId}")
+    @Transactional
+    public String delete(@PathVariable("topicId")Integer topicId){
+        replyService.deleteByTopicId(topicId);
+        topicService.deleteByPrimaryKey(topicId);
+        return "redirect:/";
     }
 }
