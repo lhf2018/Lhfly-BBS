@@ -64,4 +64,12 @@ public class TopicServiceImpl implements TopicService {
     public int updateByPrimaryKeySelective(Topic topic) {
         return topicMapper.updateByPrimaryKeySelective(topic);
     }
+
+    public List<Topic> listAllEssenceTopics() {
+        return topicMapper.listAllEssenceTopics();
+    }
+
+    public List<Topic> listEssenceTopics(Integer tabId) {
+        return topicMapper.listEssenceTopics(tabId);
+    }
 }

@@ -18,6 +18,15 @@ public class Topic {
     private Integer click;
     private Byte tabId;
     private String content;
+    private Integer isEssence;
+
+    public Integer getIsEssence() {
+        return isEssence;
+    }
+
+    public void setIsEssence(Integer isEssence) {
+        this.isEssence = isEssence;
+    }
 
     public User getUser() {
         return user;
@@ -111,11 +120,17 @@ public class Topic {
      * Date日期转字符串
      */
     public String getLocalCreateTime(){
+        if(createTime==null){
+            return null;
+        }
         //设置日期格式
-        SimpleDateFormat df=new SimpleDateFormat("yyyy-M-dd HH:mm:ss");
+        SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return df.format(createTime);
     }
     public String getLocalUpdateTime(){
+        if(updateTime==null){
+            return null;
+        }
         SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return df.format(updateTime);
     }

@@ -34,4 +34,9 @@ public interface TopicMapper {
     List<Topic> listRecentTopics(Integer tabId);
     //获取全部最近主题
     List<Topic> listAllRecentTopics();
+    //获取全部精品帖子
+    List<Topic> listAllEssenceTopics();
+    //获取部分精品帖子
+    List<Topic> listEssenceTopics(Integer tabId);
+
 }

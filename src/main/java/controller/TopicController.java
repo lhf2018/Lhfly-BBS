@@ -187,7 +187,7 @@ public class TopicController {
                 topics=topicService.listActiveTopics(tabId);
             }else if(classifyName.equals("essence")){
                 //获取精品主题主题
-                topics=topicService.listActiveTopics(tabId);
+                topics=topicService.listEssenceTopics(tabId);
             }else{
                 //获取最近主题
                 topics=topicService.listRecentTopics(tabId);
@@ -199,7 +199,7 @@ public class TopicController {
                 topics=topicService.listAllActiveTopics();
             }else if(classifyName.equals("essence")){
                 //获取精品主题主题
-                topics=topicService.listAllActiveTopics();
+                topics=topicService.listAllEssenceTopics();
             }else{
                 //获取最近主题
                 topics=topicService.listAllRecentTopics();

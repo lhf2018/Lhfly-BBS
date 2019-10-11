@@ -31,6 +31,10 @@ public interface TopicService {
     List<Topic> listAllRecentTopics();
     //更新帖子
     int updateByPrimaryKeySelective(Topic topic);
+    //获取全部精品帖子
+    List<Topic> listAllEssenceTopics();
+    //获取部分精品帖子
+    List<Topic> listEssenceTopics(Integer tabId);
 
 
 }

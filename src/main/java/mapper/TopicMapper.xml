@@ -10,6 +10,7 @@
         <result column="title" property="title" jdbcType="VARCHAR" />
         <result column="click" property="click" jdbcType="INTEGER" />
         <result column="tab_id" property="tabId" jdbcType="TINYINT" />
+        <result column="isEssence" property="isEssence" jdbcType="INTEGER"/>
     </resultMap>
     <!-- 主题基本结果集+ 主题内容  用于主题详情-->
     <resultMap id="ResultMapWithBLOBs" type="pojo.Topic">
@@ -25,6 +26,7 @@
         <result column="click" property="click" jdbcType="INTEGER" />
         <result column="tab_id" property="tabId" jdbcType="TINYINT" />
         <result column="count_replies" property="countReplies" jdbcType="INTEGER" />
+        <result column="isEssence" property="isEssence" jdbcType="INTEGER"/>
         <association property="user" javaType="pojo.User">
             <id column="id" property="id" jdbcType="INTEGER" />
             <result column="username" property="username" jdbcType="VARCHAR" />
@@ -45,6 +47,7 @@
         <result column="content" property="content" jdbcType="LONGVARCHAR" />
         <result column="click" property="click" jdbcType="INTEGER" />
         <result column="tab_id" property="tabId" jdbcType="TINYINT" />
+        <result column="isEssence" property="isEssence" jdbcType="INTEGER"/>
         <association property="user" javaType="pojo.User">
             <id column="id" property="id" jdbcType="INTEGER" />
             <result column="username" property="username" jdbcType="VARCHAR" />
@@ -59,19 +62,19 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,user_id,create_time,update_time,title,click,tab_id
+        id,user_id,create_time,update_time,title,click,tab_id,isEssence
     </sql>
     <sql id="Blob_Column_List" >
         content
     </sql>
     <select id="listTopicsAndUsers" resultMap="topicAndUserInfo" >
-        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar ,
+        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar ,
                tab.tab_name,count(reply.id) as count_replies from topic LEFT JOIN user on  topic.user_id = user.id
                                                                         LEFT JOIN tab on tab.id=topic.tab_id LEFT JOIN reply on topic.id=reply.topic_id
         group by topic.id order by topic.id desc ;
     </select>
     <select id="listTopicsAndUsersOfTab" parameterType="java.lang.Integer" resultMap="topicAndUserInfo">
-        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar ,
+        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar ,
                tab.tab_name,count(reply.id) as count_replies
         from topic
         left join user on topic.user_id=user.id
@@ -107,7 +110,7 @@
     </select>
     <!--选取活跃的帖子-->
     <select id="listAllActiveTopics" resultMap="topicAndUserInfo">
-        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar,
+        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar,
                tab.tab_name,count(reply.id) as count_replies
         from topic
                  left join user on topic.user_id=user.id
@@ -117,7 +120,7 @@
         order by count_replies desc;
     </select>
     <select id="listActiveTopics" parameterType="java.lang.Integer" resultMap="topicAndUserInfo">
-        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar ,
+        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar ,
                tab.tab_name,count(reply.id) as count_replies
         from topic
                  left join user on topic.user_id=user.id
@@ -130,7 +133,7 @@
     </select>
     <!--选取最近更新的帖子-->
     <select id="listAllRecentTopics" resultMap="topicAndUserInfo">
-        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar,
+        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar,
                tab.tab_name,count(reply.id) as count_replies
         from topic
                  left join user on topic.user_id=user.id
@@ -141,7 +144,7 @@
     </select>
 
     <select id="listRecentTopics" parameterType="java.lang.Integer" resultMap="topicAndUserInfo">
-        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,user.username,user.avatar ,
+        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar ,
                tab.tab_name,count(reply.id) as count_replies
         from topic
                  left join user on topic.user_id=user.id
@@ -150,6 +153,29 @@
         where tab.id=#{id,jdbcType=INTEGER}
         group by topic.id
         order by topic.update_time desc
+    </select>
+    <!--获取精品帖子-->
+    <select id="listAllEssenceTopics" resultMap="topicAndUserInfo">
+        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar,
+               tab.tab_name,count(reply.id) as count_replies
+        from topic
+                 left join user on topic.user_id=user.id
+                 left join tab on tab.id=topic.tab_id
+                 left join reply on topic.id=reply.topic_id
+        where topic.isEssence=1
+        group by topic.id
+        order by count_replies desc;
+    </select>
+    <select id="listEssenceTopics" parameterType="java.lang.Integer" resultMap="topicAndUserInfo">
+        select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar ,
+               tab.tab_name,count(reply.id) as count_replies
+        from topic
+                 left join user on topic.user_id=user.id
+                 left join tab on tab.id=topic.tab_id
+                 left join reply on topic.id=reply.topic_id
+        where topic.isEssence=1 and tab.id=#{id,jdbcType=INTEGER}
+        group by topic.id
+        order by count_replies desc;
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -160,10 +186,10 @@
     <insert id="insert" parameterType="pojo.Topic">
         insert into topic(user_id, create_time,
                           update_time, title,
-                          tab_id, content)
+                          tab_id, content,isEssence)
         values ( #{userId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
                  #{updateTime,jdbcType=TIMESTAMP}, #{title,jdbcType=VARCHAR},
-                 #{tabId,jdbcType=TINYINT}, #{content,jdbcType=LONGVARCHAR})
+                 #{tabId,jdbcType=TINYINT}, #{content,jdbcType=LONGVARCHAR},0)
     </insert>
 
     <insert id="insertSelective" parameterType="pojo.Topic">
@@ -242,6 +268,9 @@
             <if test="tabId != null" >
                 tab_id = #{tabId,jdbcType=TINYINT},
             </if>
+            <if test="isEssence != null" >
+                isEssence = #{isEssence,jdbcType=INTEGER},
+            </if>
             <if test="content != null" >
                 content = #{content,jdbcType=LONGVARCHAR},
             </if>
@@ -266,7 +295,8 @@
             update_time = #{updateTime,jdbcType=TIMESTAMP},
             title = #{title,jdbcType=VARCHAR},
             click = #{click,jdbcType=INTEGER},
-            tab_id = #{tabId,jdbcType=TINYINT}
+            tab_id = #{tabId,jdbcType=TINYINT},
+            isEssence = #{isEssence,jdbcType=INTEGER}
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="clickAddOne" parameterType="java.lang.Integer">

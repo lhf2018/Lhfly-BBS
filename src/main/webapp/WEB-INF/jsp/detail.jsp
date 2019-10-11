@@ -20,7 +20,7 @@
             <div class="panel-heading" style="background-color: white">
                 <a href="/">Lhfly</a> › 主题
             </div>
-            <h3>${topic.title}</h3><br/>
+            <h3><c:if test="${topic.isEssence==1}"><p style="color: #c9302c;display: inline">[ 精品 ]</p> </c:if>${topic.title}</h3><br/>
             <div>
                 <a href="/member/${topic.user.username}"><span ><strong>${topic.user.username}</strong></span></a>&nbsp;&nbsp;
                 <small class="text-muted">创建于: ${topic.localCreateTime}&nbsp;&nbsp;&nbsp;</small>&nbsp;&nbsp;
