@@ -64,8 +64,10 @@
     </div>
 </div>
 
-<!-- 引入侧边栏文件 -->
-<%@ include file="side.jsp"%>
+<div align="center" style="display:block;float: right;margin-right: 30px">
+    <!-- 引入侧边栏文件 -->
+    <%@ include file="side.jsp"%>
+</div>
 
 <!-- 引入footer文件 -->
 <%@ include file="footer.jsp"%>

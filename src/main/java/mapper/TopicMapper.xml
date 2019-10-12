@@ -69,9 +69,11 @@
     </sql>
     <select id="listTopicsAndUsers" resultMap="topicAndUserInfo" >
         select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar ,
-               tab.tab_name,count(reply.id) as count_replies from topic LEFT JOIN user on  topic.user_id = user.id
-                                                                        LEFT JOIN tab on tab.id=topic.tab_id LEFT JOIN reply on topic.id=reply.topic_id
-        group by topic.id order by topic.id desc ;
+               tab.tab_name,count(reply.id) as count_replies
+        from topic LEFT JOIN user on  topic.user_id = user.id
+          LEFT JOIN tab on tab.id=topic.tab_id
+          LEFT JOIN reply on topic.id=reply.topic_id
+        group by topic.id order by topic.id desc
     </select>
     <select id="listTopicsAndUsersOfTab" parameterType="java.lang.Integer" resultMap="topicAndUserInfo">
         select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar ,
@@ -81,7 +83,7 @@
         left join tab on tab.id=topic.tab_id
         left join reply on topic.id=reply.topic_id
         where tab.id=#{id,jdbcType=INTEGER}
-        group by topic.id order by topic.id desc ;
+        group by topic.id order by topic.id desc
     </select>
     <select id="selectById" parameterType="java.lang.Integer" resultMap="topicAndUserDetail">
         select topic.*,user.username,user.avatar
@@ -117,7 +119,7 @@
                  left join tab on tab.id=topic.tab_id
                  left join reply on topic.id=reply.topic_id
         group by topic.id
-        order by count_replies desc;
+        order by count_replies desc
     </select>
     <select id="listActiveTopics" parameterType="java.lang.Integer" resultMap="topicAndUserInfo">
         select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar ,
@@ -129,7 +131,6 @@
         where tab.id=#{id,jdbcType=INTEGER}
         group by topic.id
         order by count_replies desc
-        limit 20;
     </select>
     <!--选取最近更新的帖子-->
     <select id="listAllRecentTopics" resultMap="topicAndUserInfo">
@@ -140,7 +141,7 @@
                  left join tab on tab.id=topic.tab_id
                  left join reply on topic.id=reply.topic_id
         group by topic.id
-        order by topic.update_time desc;
+        order by topic.update_time desc
     </select>
 
     <select id="listRecentTopics" parameterType="java.lang.Integer" resultMap="topicAndUserInfo">
@@ -164,7 +165,7 @@
                  left join reply on topic.id=reply.topic_id
         where topic.isEssence=1
         group by topic.id
-        order by count_replies desc;
+        order by count_replies desc
     </select>
     <select id="listEssenceTopics" parameterType="java.lang.Integer" resultMap="topicAndUserInfo">
         select topic.id,topic.user_id,topic.create_time,topic.update_time,topic.title,topic.click,topic.tab_id,topic.isEssence,user.username,user.avatar ,
@@ -175,7 +176,7 @@
                  left join reply on topic.id=reply.topic_id
         where topic.isEssence=1 and tab.id=#{id,jdbcType=INTEGER}
         group by topic.id
-        order by count_replies desc;
+        order by count_replies desc
     </select>
 
     <insert id="insert" parameterType="pojo.Topic">

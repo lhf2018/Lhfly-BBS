@@ -5,7 +5,7 @@
 
 <c:if test="${empty userId}">
     <!-- 未登录 -->
-    <div class="panel panel-default" id="sidebar2" style="width: 20%;margin:1% 2% 1% 0%;position:relative;float: right">
+    <div class="panel panel-default" id="sidebar2" style="width: 100%;margin:5% 2% 1% 0%;">
         <div class="panel-heading" style="background:linear-gradient(#f1f1f1,#c4e3f3);text-align: center">
             <blockquote>
                 Lhfly
@@ -23,7 +23,7 @@
 
 <c:if test="${!empty userId}">
     <!-- 已登录 -->
-    <div class="panel panel-success" id="sidebar2" style="width: 20%;margin:1% 2% 1% 0%;position:relative;float: right">
+    <div class="panel panel-success" id="sidebar2" style="width: 100%;margin:5% 2% 1% 0%;">
         <div class="panel-heading" style="background:linear-gradient(#f1f1f1,#c4e3f3);text-align: center">
             <a style="color:black;" href="/member/${user.username}">${user.username}</a>
         </div>
@@ -35,7 +35,7 @@
     </div>
 </c:if>
 
-<div class="panel panel-default" id="sidebar1" style="width: 20%;margin:1% 2% 1% 0%;position:relative;float: right">
+<div class="panel panel-default" id="sidebar1" style="width:100%;margin:10% 2% 10% 0%;">
     <div class="panel-heading" style="background:linear-gradient(#f1f1f1,#c4e3f3);text-align: center">
         热议主题
     </div>

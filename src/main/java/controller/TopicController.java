@@ -1,5 +1,7 @@
 package controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +14,7 @@ import pojo.Tab;
 import pojo.Topic;
 import pojo.User;
 import service.*;
+import util.Page;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -35,10 +38,16 @@ public class TopicController {
      * 首页
      */
     @RequestMapping("/")
-    public ModelAndView toMain(HttpSession session){
+    public ModelAndView toMain(HttpSession session, Page page){
         ModelAndView modelAndView=new ModelAndView("cate");
+        //获取第1页，10条内容，默认查询总数count
+        PageHelper.offsetPage(page.getStart(),page.getCount());
         //首页全部主题
         List<Topic> topics=topicService.listTopicsAndUsers();
+        //分页
+        int total= (int) new PageInfo<Topic>(topics).getTotal();
+        page.setTotal(total);
+
         //获取统计信息
         int topicsNum=topicService.getTopicsNum();
         int usersNum=userService.getUserCount();
@@ -56,6 +65,7 @@ public class TopicController {
         modelAndView.addObject("usersNum", usersNum);
         modelAndView.addObject("user", user);
         modelAndView.addObject("visitorNum", visitorNum);
+        modelAndView.addObject("page", page);
         return modelAndView;
     }
     /**
@@ -97,13 +107,18 @@ public class TopicController {
      * 加载指定板块
      */
     @RequestMapping("/tab/{tabNameEn}")
-    public ModelAndView toTabPage(@PathVariable("tabNameEn")String tabNameEn,HttpSession session){
+    public ModelAndView toTabPage(@PathVariable("tabNameEn")String tabNameEn,HttpSession session,Page page){
         Tab tab=tabService.getByTabNameEn(tabNameEn);
         Integer tabId=tab.getId();
 
         ModelAndView mv=new ModelAndView("cate");
+        //获取第1页，10条内容，默认查询总数count
+        PageHelper.offsetPage(page.getStart(),page.getCount());
         //全部主题
         List<Topic> topics=topicService.listTopicsAndUsersOfTab(tabId);
+        //分页
+        int total= (int) new PageInfo<Topic>(topics).getTotal();
+        page.setTotal(total);
 
         //获取统计信息
         int topicsNum=topicService.getTopicsNum();
@@ -122,6 +137,7 @@ public class TopicController {
         mv.addObject("user", user);
         mv.addObject("hotestTopics", hotestTopics);
         mv.addObject("visitorNum",visitorNum);
+        mv.addObject("page", page);
         return mv;
     }
     /**
@@ -177,8 +193,10 @@ public class TopicController {
      * @return
      */
     @RequestMapping("/topictab/{classifyName}/{tabNameEn}")
-    public ModelAndView classify(@PathVariable("classifyName")String classifyName,@PathVariable("tabNameEn")String tabNameEn,HttpSession session){
+    public ModelAndView classify(@PathVariable("classifyName")String classifyName,@PathVariable("tabNameEn")String tabNameEn,HttpSession session,Page page){
         List<Topic> topics;
+        //获取第1页，10条内容，默认查询总数count
+        PageHelper.offsetPage(page.getStart(),page.getCount());
         if(!tabNameEn.equals("all")){
             //获取版面信息
             Tab tab=tabService.getByTabNameEn(tabNameEn);
@@ -206,6 +224,8 @@ public class TopicController {
                 topics=topicService.listAllRecentTopics();
             }
         }
+        int total= (int) new PageInfo<Topic>(topics).getTotal();
+        page.setTotal(total);
         //获取统计信息
         int topicsNum=topicService.getTopicsNum();
         int usersNum=userService.getUserCount();
@@ -223,6 +243,7 @@ public class TopicController {
         mv.addObject("user", user);
         mv.addObject("hotestTopics", hotestTopics);
         mv.addObject("visitorNum",visitorNum);
+        mv.addObject("page", page);
         return mv;
     }
     //删除主题

@@ -1,5 +1,6 @@
 package service.Impl;
 
+import com.github.pagehelper.PageHelper;
 import dao.TopicMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

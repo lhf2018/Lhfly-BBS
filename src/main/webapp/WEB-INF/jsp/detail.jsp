@@ -13,7 +13,7 @@
 <body>
 <!-- 引入header文件 -->
 <%@ include file="header.jsp"%>
-<div style="width: 70%;margin:1% 2% 1% 5%;float: left;">
+<div style="display:inline-block;width: 70%;margin:1% 2% 1% 5%;">
 <div class="panel panel-default" id="main" style="">
     <div class="panel-heading" style="background-color: white">
         <div>
@@ -57,7 +57,7 @@
     </span>
     </div>
 
-    <ul class="list-group" style="width: 100%">
+    <ul class="list-group" style="display:block;width: 100%">
         <!-- 遍历评论 -->
         <c:forEach items="${replies}" var="reply">
         <li class="list-group-item">
@@ -84,7 +84,7 @@
 
 <c:if test="${!empty user}">
 
-<div class="panel panel-default" id="main" style="">
+<div class="panel panel-default" id="main" style="display: block">
     <div class="panel-heading" style="background-color: white">
         添加一条新回复
     </div>
@@ -103,8 +103,10 @@
 </c:if>
 
 </div>
-<!-- 引入侧边栏文件 -->
-<%@ include file="side.jsp"%>
+<div align="center" style="display:block;float: right;margin-right: 30px">
+    <!-- 引入侧边栏文件 -->
+    <%@ include file="side.jsp"%>
+</div>
 
 <!-- 引入footer文件 -->
 <%@ include file="footer.jsp"%>

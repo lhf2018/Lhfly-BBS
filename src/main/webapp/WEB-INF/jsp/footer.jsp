@@ -15,7 +15,7 @@
         }
         .footer {
             background-color: #fff;
-            margin-top: 700px;
+            margin-top: 100px;
             margin-bottom: 22px;
             width: 100%;
             padding-top: 22px;
@@ -66,14 +66,14 @@ a{
         <ul >
             <li><a href="https://github.com/">Github</a></li>
             <li><a href="https://bbs.csdn.net/home">CSDN</a></li>
-            <li><a href="https://www.v2ex.com/">v2ex</a></li>
+            <li><a href="https://www.v2ex.com/">V2EX</a></li>
         </ul>
     </div>
     <div class="info" >
         <p style="text-align: center;font-size: 16px;">其他信息</p>
         <ul >
-            <li><a href="/">关于本站</a></li>
-            <li><a href="/">联系我们</a></li>
+            <li><a href="">关于本站</a></li>
+            <li><a href="">联系我们</a></li>
         </ul>
     </div>
 </footer>

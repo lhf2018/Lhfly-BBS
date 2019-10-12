@@ -56,8 +56,8 @@
 <body>
 <!-- 引入header文件 -->
 <%@ include file="header.jsp"%>
-
-<div class="panel panel-success" id="main" style="width: 70%;margin:1% 2% 20% 5%;float: left;">
+<div style="display: inline-block;width: 70%">
+<div class="panel panel-success" id="main" style="width: 100%;margin:1% 2% 5% 5%;float: left;">
     <ul class="nav nav-tabs" style="background:linear-gradient(#f1f1f1,#c4e3f3);">
         <li><a style="color: black" href="/topic/active">活跃</a></li>
         <li><a style="color: black" href="/topic/essence">精华</a></li>
@@ -88,11 +88,16 @@
     </c:forEach>
 
 </ul>
-
+</div>
+<div class="pageDiv" align="center" style="display:block;">
+    <%@include file="../jsp/page.jsp" %>
+</div>
+</div>
+<div align="center" style="display:block;float: right;margin-right: 30px">
+    <!-- 引入侧边栏文件 -->
+    <%@ include file="side.jsp"%>
 </div>
 
-<!-- 引入侧边栏文件 -->
-<%@ include file="side.jsp"%>
 
 <!-- 引入footer文件 -->
 <%@ include file="footer.jsp"%>
