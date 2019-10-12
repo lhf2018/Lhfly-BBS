@@ -2,6 +2,8 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -56,5 +58,11 @@ public class ReplyController {
         //新建视图
         ModelAndView view=new ModelAndView("redirect:/t/"+topicId);
         return view;
+    }
+    @RequestMapping("/reply/delete/{replyId}/{topicId}")
+    @Transactional
+    public String delete(@PathVariable("replyId")Long replyId,@PathVariable("topicId")Integer topicId){
+        replyService.deleteByPrimaryKey(replyId);
+        return "redirect:/t/"+topicId;
     }
 }

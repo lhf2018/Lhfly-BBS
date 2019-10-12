@@ -28,4 +28,8 @@ public class ReplyServiceImpl implements ReplyService {
     public int deleteByTopicId(int id) {
         return replyMapper.deleteByTopicId(id);
     }
+
+    public int deleteByPrimaryKey(Long id) {
+        return replyMapper.deleteByPrimaryKey(id);
+    }
 }

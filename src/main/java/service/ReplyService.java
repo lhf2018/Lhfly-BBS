@@ -10,4 +10,6 @@ public interface ReplyService {
     int repliesNum(Integer topicId);
     //删除某个主题下面的回复
     int deleteByTopicId(int id);
+    //删除某个回复
+    int deleteByPrimaryKey(Long id);
 }

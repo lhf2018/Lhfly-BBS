@@ -68,6 +68,7 @@
                 <div style="width: 900px;height: 100px;margin-top:2px;display: inline-block">
                     <a href="/member/${reply.user.username}"><strong>${reply.user.username}</strong></a>&nbsp;&nbsp;
                     <small class="text-muted">${reply.localCreateTime}</small>
+                    <c:if test="${user.type==1}"><a class="deleteReply" style="margin-right: 5px" href="/reply/delete/${reply.id}/${topic.id}"><p class="btn btn-danger btn-xs" style="text-align:center;display: inline">删除回复</p></a></c:if>
                     <br/>
                     <div>
                         <p>${reply.content}</p>
@@ -129,6 +130,14 @@
     })
     $("#addEssence").click(function () {
         var ifSubmit=confirm("确定把该主题添加为精品主题吗?");
+        if (ifSubmit == true){
+
+        }else {
+            return submitValidate(false);
+        }
+    })
+    $(".deleteReply").click(function () {
+        var ifSubmit=confirm("确定删除该回复吗?");
         if (ifSubmit == true){
 
         }else {
