@@ -66,6 +66,7 @@ public class TopicController {
         modelAndView.addObject("user", user);
         modelAndView.addObject("visitorNum", visitorNum);
         modelAndView.addObject("page", page);
+        modelAndView.addObject("todayVisitor", visitorService.todayVisitor());
         return modelAndView;
     }
     /**
@@ -101,6 +102,7 @@ public class TopicController {
         topicPage.addObject("user",user);
         topicPage.addObject("hotestTopics",hotestTopics);
         topicPage.addObject("visitorNum",visitorNum);
+        topicPage.addObject("todayVisitor", visitorService.todayVisitor());
         return topicPage;
     }
     /**
@@ -138,6 +140,7 @@ public class TopicController {
         mv.addObject("hotestTopics", hotestTopics);
         mv.addObject("visitorNum",visitorNum);
         mv.addObject("page", page);
+        mv.addObject("todayVisitor", visitorService.todayVisitor());
         return mv;
     }
     /**
@@ -244,6 +247,7 @@ public class TopicController {
         mv.addObject("hotestTopics", hotestTopics);
         mv.addObject("visitorNum",visitorNum);
         mv.addObject("page", page);
+        mv.addObject("todayVisitor", visitorService.todayVisitor());
         return mv;
     }
     //删除主题

@@ -56,7 +56,7 @@ a{
         <p style="text-align: center;font-size: 16px;">统计信息</p>
         <ul >
             <li>总访问量: ${visitorNum}</li>
-            <li>今日访问量: </li>
+            <li>今日访问量: ${todayVisitor}</li>
             <li>会员数: ${usersNum}</li>
             <li>话题数: ${topicsNum}</li>
         </ul>

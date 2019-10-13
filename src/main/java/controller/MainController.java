@@ -36,6 +36,7 @@ public class MainController {
         mv.addObject("topicsNum", topicsNum);
         mv.addObject("usersNum", userNum);
         mv.addObject("visitorNum",visitorNum);
+        mv.addObject("todayVisitor", visitorService.todayVisitor());
         return mv;
     }
     /**
@@ -53,6 +54,7 @@ public class MainController {
         mv.addObject("topicsNum",topicsNum);
         mv.addObject("usersNum",usersNum);
         mv.addObject("visitorNum",visitorNum);
+        mv.addObject("todayVisitor", visitorService.todayVisitor());
         return  mv;
     }
     /**
@@ -71,6 +73,7 @@ public class MainController {
         mv.addObject("topicsNum",topicsNum);
         mv.addObject("usersNum",usersNum);
         mv.addObject("visitorNum",visitorNum);
+        mv.addObject("todayVisitor", visitorService.todayVisitor());
         return mv;
     }
     /**

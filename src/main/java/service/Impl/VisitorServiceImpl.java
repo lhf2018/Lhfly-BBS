@@ -17,4 +17,8 @@ public class VisitorServiceImpl implements VisitorService {
     public int countVisitor() {
         return visitorMapper.countVisitor();
     }
+
+    public int todayVisitor() {
+        return visitorMapper.todayVisitor();
+    }
 }

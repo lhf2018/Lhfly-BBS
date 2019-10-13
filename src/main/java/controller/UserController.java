@@ -177,6 +177,7 @@ public class UserController {
         ModelAndView mv=new ModelAndView("user_info");
         mv.addObject("hotestTopics",hotestTopics);
         mv.addObject("visitorNum", visitorNum);
+        mv.addObject("todayVisitor", visitorService.todayVisitor());
         if(ifExistUser){
             User resultUser=userService.getUserByUsername(username);
             mv.addObject("userInfo",resultUser);
@@ -205,6 +206,7 @@ public class UserController {
         mv.addObject("user",user);
         mv.addObject("hotestTopics",hotestTopics);
         mv.addObject("visitorNum",visitorNum);
+        mv.addObject("todayVisitor", visitorService.todayVisitor());
         return mv;
     }
     @RequestMapping(value = "/settings/avatar",method = RequestMethod.GET)
@@ -222,6 +224,7 @@ public class UserController {
         mv.addObject("user",user);
         mv.addObject("hotestTopics",hotestTopics);
         mv.addObject("visitorNum",visitorNum);
+        mv.addObject("todayVisitor", visitorService.todayVisitor());
         return mv;
     }
     @RequestMapping(value = "/settings/avatar/update",method = RequestMethod.POST)
@@ -258,6 +261,7 @@ public class UserController {
         mv.addObject("user", user);
         mv.addObject("hotestTopics", hotestTopics);
         mv.addObject("visitorNum",visitorNum);
+        mv.addObject("todayVisitor", visitorService.todayVisitor());
         return mv;
     }
 }

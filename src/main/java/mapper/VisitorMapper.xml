@@ -14,4 +14,7 @@
     <select id="countVisitor" resultType="java.lang.Integer">
         select count(*) from visitor;
     </select>
+    <select id="todayVisitor" resultType="java.lang.Integer">
+        SELECT count(*) from visitor WHERE DATEDIFF(visit_time,CURDATE())=0;
+    </select>
 </mapper>
