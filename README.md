@@ -1,6 +1,6 @@
 ### Lhfly-BBS 论坛
 
-受GitHub的一个BBS项目Genesis的启发，重新写了一个BBS论坛并且实现了一些简单功能
+受GitHub的一个BBS项目Genesis的启发，重新写了一个BBS论坛，实现了基本功能
 ##### 技术栈
 
 * 本项目基于Spring、Spring MVC、MyBatis框架实现
@@ -47,3 +47,6 @@
 
 管理员的主题详情界面
 ![微信截图_20191017204948.png](https://i.loli.net/2019/10/17/DvEIS4utr3RlQjn.png)
+
+网站信息展示
+![微信截图_20191017212355.png](https://i.loli.net/2019/10/17/JHWnvM9uCYQ2qoa.png)
