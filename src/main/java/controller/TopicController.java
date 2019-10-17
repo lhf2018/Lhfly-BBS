@@ -77,6 +77,11 @@ public class TopicController {
      */
     @RequestMapping("/t/{id}")
     public ModelAndView toTopic(@PathVariable("id")int id,HttpSession session){
+        //先检验这个帖子是否存在
+        if(!topicService.existTopic(id)){
+            //不存在跳转到404界面
+            return new ModelAndView("404");
+        }
         //点击量+1
         boolean ifSuccess=topicService.clickAddOne(id);
         //获取主题信息

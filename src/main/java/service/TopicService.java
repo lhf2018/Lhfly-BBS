@@ -37,7 +37,8 @@ public interface TopicService {
     List<Topic> listEssenceTopics(Integer tabId);
     //删除主题
     int deleteByPrimaryKey(int topicId);
-
+    //查看是否帖子存在
+    boolean existTopic(Integer topicId);
 
 
 }

@@ -146,7 +146,7 @@
     <h1>404 Not Find<span>:(</span></h1>
     <p>对不起，您访问的页面不存在~</p>
     <p>请输入正确的地址</p>
-    <p><em id="num">3</em>秒后，自动跳转到上一页</p>
+    <p><em id="num">5</em>秒后，自动跳转到上一页</p>
     <script>
         var i =3;
         function djs() {

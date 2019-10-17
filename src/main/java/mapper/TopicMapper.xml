@@ -178,7 +178,9 @@
         group by topic.id
         order by count_replies desc
     </select>
-
+    <select id="existTopic" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM topic WHERE id=#{id,jdbcType=INTEGER};
+    </select>
     <insert id="insert" parameterType="pojo.Topic">
         insert into topic(user_id, create_time,
                           update_time, title,

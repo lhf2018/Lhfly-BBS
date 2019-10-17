@@ -77,4 +77,8 @@ public class TopicServiceImpl implements TopicService {
     public int deleteByPrimaryKey(int topicId) {
         return topicMapper.deleteByPrimaryKey(topicId);
     }
+
+    public boolean existTopic(Integer topicId) {
+        return topicMapper.existTopic(topicId)>0;
+    }
 }

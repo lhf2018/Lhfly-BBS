@@ -40,6 +40,7 @@ public interface TopicMapper {
     List<Topic> listEssenceTopics(Integer tabId);
     //删除主题
     int deleteByPrimaryKey(int topicId);
-
+    //查看是否帖子存在
+    int existTopic(Integer topicId);
 
 }
