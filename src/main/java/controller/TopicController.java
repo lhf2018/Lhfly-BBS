@@ -33,6 +33,8 @@ public class TopicController {
     TabService tabService;
     @Autowired
     VisitorService visitorService;
+    @Autowired
+    MessageService messageService;
 
     /**
      * 首页
@@ -67,6 +69,7 @@ public class TopicController {
         modelAndView.addObject("visitorNum", visitorNum);
         modelAndView.addObject("page", page);
         modelAndView.addObject("todayVisitor", visitorService.todayVisitor());
+        modelAndView.addObject("unreadMessage", messageService.getUnreadMessageNumOfUser(uid));
         return modelAndView;
     }
     /**
@@ -103,6 +106,7 @@ public class TopicController {
         topicPage.addObject("hotestTopics",hotestTopics);
         topicPage.addObject("visitorNum",visitorNum);
         topicPage.addObject("todayVisitor", visitorService.todayVisitor());
+        topicPage.addObject("unreadMessage", messageService.getUnreadMessageNumOfUser(uid));
         return topicPage;
     }
     /**
@@ -141,6 +145,7 @@ public class TopicController {
         mv.addObject("visitorNum",visitorNum);
         mv.addObject("page", page);
         mv.addObject("todayVisitor", visitorService.todayVisitor());
+        mv.addObject("unreadMessage", messageService.getUnreadMessageNumOfUser(uid));
         return mv;
     }
     /**
@@ -248,6 +253,7 @@ public class TopicController {
         mv.addObject("visitorNum",visitorNum);
         mv.addObject("page", page);
         mv.addObject("todayVisitor", visitorService.todayVisitor());
+        mv.addObject("unreadMessage", messageService.getUnreadMessageNumOfUser(uid));
         return mv;
     }
     //删除主题

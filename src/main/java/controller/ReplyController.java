@@ -57,6 +57,7 @@ public class ReplyController {
 
         //新建视图
         ModelAndView view=new ModelAndView("redirect:/t/"+topicId);
+        view.addObject("reply", reply);
         return view;
     }
     @RequestMapping("/reply/delete/{replyId}/{topicId}")

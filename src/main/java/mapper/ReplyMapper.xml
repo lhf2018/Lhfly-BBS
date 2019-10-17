@@ -31,7 +31,7 @@
         delete from reply
         where id=#{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" parameterType="pojo.Reply">
+    <insert id="insert" parameterType="pojo.Reply" keyProperty="id" useGeneratedKeys="true">
         insert into reply (topic_id, reply_user_id,
                            create_time, update_time,
                            content)

@@ -9,10 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pojo.LoginLog;
 import pojo.Topic;
 import pojo.User;
-import service.LoginLogService;
-import service.TopicService;
-import service.UserService;
-import service.VisitorService;
+import service.*;
 import util.ProduceMD5;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +30,8 @@ public class UserController {
     TopicService topicService;
     @Autowired
     VisitorService visitorService;
+    @Autowired
+    MessageService messageService;
     //用户注册
     @RequestMapping("/user/add/do")
     public String addUser(HttpServletRequest request,HttpSession session){
@@ -178,6 +177,7 @@ public class UserController {
         mv.addObject("hotestTopics",hotestTopics);
         mv.addObject("visitorNum", visitorNum);
         mv.addObject("todayVisitor", visitorService.todayVisitor());
+        mv.addObject("unreadMessage", messageService.getUnreadMessageNumOfUser(uid));
         if(ifExistUser){
             User resultUser=userService.getUserByUsername(username);
             mv.addObject("userInfo",resultUser);
@@ -207,6 +207,7 @@ public class UserController {
         mv.addObject("hotestTopics",hotestTopics);
         mv.addObject("visitorNum",visitorNum);
         mv.addObject("todayVisitor", visitorService.todayVisitor());
+        mv.addObject("unreadMessage", messageService.getUnreadMessageNumOfUser(uid));
         return mv;
     }
     @RequestMapping(value = "/settings/avatar",method = RequestMethod.GET)
@@ -225,6 +226,7 @@ public class UserController {
         mv.addObject("hotestTopics",hotestTopics);
         mv.addObject("visitorNum",visitorNum);
         mv.addObject("todayVisitor", visitorService.todayVisitor());
+        mv.addObject("unreadMessage", messageService.getUnreadMessageNumOfUser(uid));
         return mv;
     }
     @RequestMapping(value = "/settings/avatar/update",method = RequestMethod.POST)
@@ -262,6 +264,7 @@ public class UserController {
         mv.addObject("hotestTopics", hotestTopics);
         mv.addObject("visitorNum",visitorNum);
         mv.addObject("todayVisitor", visitorService.todayVisitor());
+        mv.addObject("unreadMessage", messageService.getUnreadMessageNumOfUser(uid));
         return mv;
     }
 }
