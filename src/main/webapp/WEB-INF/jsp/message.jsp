@@ -23,6 +23,7 @@
             <c:if test="${messNum!=0}">
                 <ul class="list-group" style="width: 100%">
                     <c:forEach items="${messages}" var="message">
+                        <c:if test="${! empty message}">
                         <li class="list-group-item">
                             <c:if test="${message.is_read==0}">
                                 <span style="color: #c9302c">[ 未读 ]</span>
@@ -37,6 +38,7 @@
                                 <a href="/message/read/${message.topic_id}"><span style="font-weight: bold">查看主题: </span>${message.topic_name}</a>
                             </c:if>
                         </li>
+                        </c:if>
                     </c:forEach>
                 </ul>
             </c:if>

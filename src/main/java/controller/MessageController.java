@@ -59,7 +59,12 @@ public class MessageController {
         //把topic查出来赋值给message中的topic_name
         for(int i=0;i<messages.size();i++){
             Topic topic=topicService.selectById(messages.get(i).getTopic_id());
-            messages.get(i).setTopic_name(topic.getTitle());
+            if(topic==null){
+                //如果帖子不存在，就显示删除
+                messages.get(i).setTopic_name("该主题已被删除");
+            }else {
+                messages.get(i).setTopic_name(topic.getTitle());
+            }
         }
         //消息数量
         int messNum=messageService.getAllMessageNumOfUser(userId);
