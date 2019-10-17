@@ -39,7 +39,7 @@
     <div class="panel-heading" style="background:linear-gradient(#f1f1f1,#c4e3f3);text-align: center">
         热议主题
     </div>
-    <ul class="list-group" style="width: 100%">
+    <ul class="list-group" style="width: 250px">
         <c:forEach items="${hotestTopics}" var="hotestTopic">
             <a class="list-group-item" href="/t/${hotestTopic.id}">${hotestTopic.title}</a>
         </c:forEach>
